@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <!-- 引入css文件 -->
+    <link href="css/mui.min.css" rel="stylesheet"/>
+	<style type="text/css">
+		body {
+			background-image: url(images/bg.png);
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			height: 100vh;
+			text-align: center;
+		}
+		#yuan {
+			margin-top: 150px;
+			height: 50vh;
+		}
+		#btn {
+			margin-top: 20px;
+			/* background-color:orange;
+			color:white; */
+		}
+		#icons {
+			position: fixed;
+			bottom: 30px;
+			left:0px;
+			right:0px;
+			/* width: 100%; */
+		}
+		.icon {
+			width: 60px;
+			height: 60px;
+			margin-left:20px;
+			margin-right:20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 壮猿 -->
+	<img id="yuan" src="images/stand.gif">
+	<br>
+	<!-- 按钮 -->
+	<button id="btn" type="button" class="mui-btn mui-btn-yellow">按住按钮对壮猿讲话</button>
+	<!-- 三个图标 -->
+	<div id="icons">
+		<img class="icon" src="images/icon-translate.png">
+		<img class="icon" src="images/icon-plant.png">
+		<img class="icon" src="images/icon-user.png">
+	</div>
+	
+	<!-- 引入js文件 -->
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		//mui组件初始化
+	  	mui.init({
+			//配置手势事件
+			gestureConfig:{
+				hold:true,
+				release:true
+			}
+		});
+		
+		//获取 id="btn" 的按钮元素
+		var btn = mui("#btn")[0]
+		//定义变量，用来存储当前设备的录音对象
+		var audio
+		
+		//为按钮绑定“按住”事件
+		btn.addEventListener("hold",function(){
+			// console.log("按住了按钮！")
+			//1.获取当前设备的录音对象
+			audio = plus.audio.getRecorder()
+			//2.调用设备麦克风进行录音
+			audio.record(
+				//对录音操作进行设置
+				{
+					format:"amr" //设置录音文件的格式
+				},
+				//录音成功的处理函数
+				function(file){
+					alert("录音成功！文件的保存路径为：" + file)
+					//1.创建上传任务
+					var task = plus.uploader.createUpload(
+						//服务器端接口地址
+						"https://www.yuanfudao.com/ada-student-app-api/api/aibot",
+						//设置请求方式
+						{ method:"POST" },
+						//上传任务完成后的处理函数
+						function(upload,status){
+							//处理上传结果
+							console.log("上传结果状态码：" + status)
+							console.log("服务器返回的数据：" + upload.responseText)
+							// 判断参数status的值，status值是200的时候上传成功
+							if( 判断条件 ){ //上传成功
+								alert("语音上传成功！")
+							}else{ //上传失败
+								alert("语音上传失败！请重新对壮猿讲话~")
+							}
+						}
+					)
+					//2.向上传任务中添加文件
+					task.addFile(file,{key:"voice"})
+					//3.开始上传任务
+					task.start()
+				},
+				//录音失败的处理函数
+				function(){
+					alert("录音失败！")
+				}
+			)
+		})
+		//为按钮绑定“松开”事件
+		btn.addEventListener("release",function(){
+			// console.log("松开了按钮！")
+			//3.结束录音
+			audio.stop()
+		})
+		
+	</script>
+</body>
+</html>

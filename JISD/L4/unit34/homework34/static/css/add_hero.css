@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.page-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url('/static/images/bg.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*background-color: #E1FCC4;*/
+}
+
+.page-form-container h1 {
+    color: #FF644F;
+    margin-bottom: 28px;
+}
+
+.page-form-container form {
+    margin-top: 15px;
+}
+
+.page-form-container select,input {
+    margin-bottom: 30px;
+    height: 26px;
+}
+
+.page-form-container input[type="radio"] {
+    margin-bottom: 30px;
+    height: 13px;
+}
+
+.page-form-container textarea {
+    margin-top: 8px;
+    margin-bottom: 30px;
+}
+
+.text {
+    margin: 10px 0;
+}
+span {
+    color: red;
+}
+
+.page-form-container select {
+    width: 150px;
+}
+
+
+

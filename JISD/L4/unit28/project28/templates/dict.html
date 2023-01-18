@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>家庭成员信息</title>
+    <link rel="stylesheet" href="static/css/dict_u28.css">
+</head>
+<body>
+    <div class="page-dict-container">
+        <div class="page-dict-wrap">
+            <!-- 人物信息 -->
+            {% for i in t_data %}
+                 <div>
+                     <!-- 【提示4】设置图片路径（“”image） -->
+                     <img src="">
+                     <!-- 【提示4】人物（“”name） -->
+                     <p>人物：</p>
+                     <!-- 【提示4】年龄（“”age） -->
+                     <p>年龄：</p>
+                     <!-- 【提示4】想说的话（“”info） -->
+                     <p>想说的话：</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
+

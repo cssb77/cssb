@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+	<style type="text/css">
+		body{
+			background-image: url(images/bg.png);
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			height: 100vh;
+			text-align: center;
+		}
+		#yuan {
+			margin-top: 150px;
+			height: 50vh;
+		}
+		#btn {
+			margin-top: 20px;
+		}
+		/* 为图标设置位置 */
+		#icons{
+			/* 图标定位 */
+			background-color: #FbE7E6;
+			/* position: fixed; */
+		}
+		.icon {
+			width: 60px;
+			height: 60px;
+			margin-left:20px;
+			margin-right:20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 壮猿 -->
+	<img id="yuan" src="images/stand.gif">
+	<br>
+	<!-- 按钮 -->
+	<button id="btn" type="button" class="mui-btn mui-btn-warning">按住按钮对壮猿讲话</button>
+	<!-- 三个图标 -->
+	<div id="icons">
+		<img class="icon" src="images/icon-translate.png">
+		<img class="icon" src="images/icon-plant.png">
+		<img class="icon" src="images/icon-user.png">
+	</div>
+</body>
+</html>

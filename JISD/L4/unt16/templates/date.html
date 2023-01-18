@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的生日</title>
+    <link rel="stylesheet" href="/static/css/date_u12_work.css">
+</head>
+<body>
+    <div class="page-birth-container">
+        <img src="/static/images/notice.jpg">
+        <!-- 【提示1】设置表单提交方式为: "post"  -->
+        <form action="/star"method="post">
+            <input type="text" name="month">月
+            <input type="text" name="day">日
+            <input type="submit">
+        </form>
+    </div>
+</body>
+<script>
+    // 监听点击事件，判断输入内容
+    document.getElementsByTagName("input")[2].onclick = function(){
+        month = document.getElementsByTagName("input")[0].value
+        day = document.getElementsByTagName("input")[1].value
+        if (parseInt(month) < 1 || parseInt(month) > 12 || month == "" || parseInt(day) < 1 || parseInt(day) > 31 || day == "") {
+            alert('生日输入有误哦~')
+            return false
+        }
+    }
+</script>
+</html>

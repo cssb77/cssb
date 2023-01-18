@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+	<style type="text/css">
+		body {
+			height: 100vh;
+			background-image: url(images/bg.png);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		.mui-content {
+			background-color: transparent;
+		}
+		.head {
+			text-align: center;
+		}
+		#avatar {
+			width: 180px;
+			height: 240px;
+			margin-top: 20px;
+			border-radius: 10px;
+			border:3px dashed orange;
+		}
+		.introduce {
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+		<h1 class="mui-title">个人介绍</h1>
+	</header>
+	<div class="mui-content">
+			<div class="head">
+				<img id="avatar" src="images/user.png" >
+				<br>
+				<button type="button" id="edit" class="mui-btn mui-btn-yellow">点击修改照片</button>
+			</div>
+			<div class="introduce">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a>昵称<p class="mui-pull-right">壮猿</p></a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>年龄<p class="mui-pull-right">7岁</p></a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>个性签名<p class="mui-pull-right">宇宙超级无敌帅~</p></a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>编写代码行数<p class="mui-pull-right">1024行</p></a>
+					</li>
+				</ul>
+			</div>
+	</div>
+	
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	  	mui.init();
+		
+		mui.plusReady(function(){
+			mui('#edit')[0].addEventListener('tap',function(){
+					plus.nativeUI.actionSheet({
+						title: "修改头像",
+						cancel: "取消",
+						buttons: [
+							{title: "拍照"},
+							{title: "从手机相册选择"}
+						]
+					}, function(b) {
+						switch (b.index) {
+							case 1://拍照
+								getImage();
+								break;
+							case 2://从相册选择
+								galleryImg();
+								break;
+							default:
+								break
+						}
+					})
+			});
+			//拍照
+			function getImage() {
+				var c = plus.camera.getCamera();//获取摄像头对象
+				//进行拍照操作
+				c.captureImage(function(path) {//拍照成功
+					//获取绝对路径
+					var url = plus.io.convertLocalFileSystemURL(path)
+					//修改头像
+					document.getElementById("avatar").src = url;
+				})
+			}
+			//从相册选择
+			function galleryImg() {
+				//从系统相册选择文件
+				plus.gallery.pick(function(path) {//选择文件完成
+					//修改头像
+					document.getElementById("avatar").src = path;
+				})
+			};
+		});
+	</script>
+</body>
+</html>

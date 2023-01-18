@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>书籍展示</title>
+    <link rel="stylesheet" href="static/css/book_u32_work.css">
+</head>
+<body>
+<div>
+    <!-- 【提示】定义超链接（用于添加书籍）
+                超链接内容：添加书籍
+                目标地址："/add"
+    -->
+    <a href="/add_book">添加书籍</a>
+
+    <div class="book-page-container">
+        <div class="wfbox">
+            <ul>
+              {% for i in t_data %}
+                <li>
+                    <img src="{{ i.img }}" class="book-img">
+                </li>
+              {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+    <script src="static/js/animate.js"></script>
+</body>
+</html>

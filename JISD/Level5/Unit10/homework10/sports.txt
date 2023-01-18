@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta charset="gb2312">
+    <title>体育</title>
+    <link rel="stylesheet" href="/news_l5/ybc_news_l5/static/css/international.css">
+</head>
+<body>
+    <!--顶部(主图)-->
+    <div class="top" id="banner">
+        <!--主图-->
+        <img class="topImg" src="/news_l5/ybc_news_l5/static/images/news_banner.png" alt="">
+    </div>
+    <div class="box">
+        <!--导航栏-->
+        <div class="navigation">
+            <!--LOGO图-->
+            <img class="logo" src="/news_l5/ybc_news_l5/static/images/logo_new.png" alt="猿编程">
+            <ul class="nav">
+                <li><a href="http://show.ybccode.com/news_l5/science/">科技</a> </li>
+                <li><a href="http://show.ybccode.com/news_l5/international/">国际</a> </li>
+                <li><a href="http://show.ybccode.com/news_l5/science/">军事</a> </li>
+                <li><a href="#">体育</a></li>
+                <li><a href="http://show.ybccode.com/news_l5/yuanfudao/">猿辅导</a> </li>
+            </ul>
+        </div>
+        <!--中部（轮播图、新鲜事、新闻列表）-->
+        <div class="center">
+            <div class="center_top">
+                <div class="top_news">
+                     
+                    <div>
+                        <img src="https://09imgmini.eastday.com/mobile/20201117/20201117173609_0d653fc45311484a69516ab75ac1577e_7_mwpm_03200403.jpg" alt="">
+                        <span>
+                            <a href="https://mini.eastday.com/mobile/201117173609305.html">先换霍勒迪！再换博格丹！雄鹿疯了，五巨头阵容浮出水面！</a>
+                        </span>
+                    </div>
+                    
+                    <div>
+                        <img src="https://06imgmini.eastday.com/mobile/20201117/2020111717_57d8d87831024029883050517de753c0_7450_mwpm_03200403.jpg" alt="">
+                        <span>
+                            <a href="https://mini.eastday.com/mobile/201117173558599.html">邓亚萍、王楠、张怡宁谁的综合水平更高？</a>
+                        </span>
+                    </div>
+                    
+                </div>
+
+                <!--新鲜事-->
+                <!--新鲜事框为背景图片-->
+                
+                <div class="new_news">
+                    <img src="https://00imgmini.eastday.com/mobile/20201117/20201117173421_cb64aea70f2b782be030639398c73b89_1_mwpm_03200403.jpg" alt="">
+                    <span class="new_title">
+                        <a href="https://mini.eastday.com/mobile/201117173421709.html">迪尼：搞不懂曼联当年为什么卖卢卡库，他表现一直很出色</a>
+                    </span>
+                </div>
+                
+            </div>
+
+            <!--新闻列表-->
+            <!--每页展示8条新闻，点击新闻图片或者新闻标题都可以进入新闻详情页-->
+            <div class="center_bottom">
+                <ul class="news_list">
+                    <!--每一条新闻-->
+                    
+					<li>
+                        <div>
+                            <img src="https://05imgmini.eastday.com/mobile/20201117/20201117173324_239037ea55f3a3e9d0729e3c233b1132_4_mwpm_03200403.jpg" alt="">
+                        </div>
+                        <div>
+                            <a href="https://mini.eastday.com/mobile/201117173324220.html">开除粉籍！上港球迷因与申花球员合影被开，恒大球迷会也干过</a>
+                            <span>毒舌中超辣评</span>
+                            <span>2020-11-17 17:33</span>
+                        </div>
+                    </li>
+                    
+					<li>
+                        <div>
+                            <img src="https://00imgmini.eastday.com/mobile/20201117/2020111717_d1f2d032910a4a049e7f2b4d56b44ae1_2663_mwpm_03200403.jpg" alt="">
+                        </div>
+                        <div>
+                            <a href="https://mini.eastday.com/mobile/201117173127073.html">欧洲转会流言：阿圭罗欲转投巴萨联手梅西，梅西会留下吗？</a>
+                            <span>古时候</span>
+                            <span>2020-11-17 17:31</span>
+                        </div>
+                    </li>
+                    
+					<li>
+                        <div>
+                            <img src="https://07imgmini.eastday.com/mobile/20201117/20201117173050_4b1762bd11930924992161025a524fe2_2_mwpm_03200403.jpg" alt="">
+                        </div>
+                        <div>
+                            <a href="https://mini.eastday.com/mobile/201117173050391.html">职业生涯第三次加盟火箭 阿里扎仍在等待一份道歉</a>
+                            <span>NBA最前线</span>
+                            <span>2020-11-17 17:30</span>
+                        </div>
+                    </li>
+                    
+					<li>
+                        <div>
+                            <img src="https://04imgmini.eastday.com/mobile/20201117/20201117173048_aee15af4209f0ab8378c11ace3e83bb3_1_mwpm_03200403.jpg" alt="">
+                        </div>
+                        <div>
+                            <a href="https://mini.eastday.com/mobile/201117173048559.html">魔术师：保罗布克能带队到西部第四第五，比赛充满观赏性</a>
+                            <span>虎扑体育</span>
+                            <span>2020-11-17 17:30</span>
+                        </div>
+                    </li>
+                    
+					<li>
+                        <div>
+                            <img src="https://09imgmini.eastday.com/mobile/20201117/20201117173042_b16f03ac4538f499b3131ad657165775_1_mwpm_03200403.jpg" alt="">
+                        </div>
+                        <div>
+                            <a href="https://mini.eastday.com/mobile/201117173042479.html">ATP总决赛的大满贯话题：男子也应该三盘两胜吗？</a>
+                            <span>体坛全接触</span>
+                            <span>2020-11-17 17:30</span>
+                        </div>
+                    </li>
+                    
+					<li>
+                        <div>
+                            <img src="https://04imgmini.eastday.com/mobile/20201117/20201117173040_cb850d457417bf27a160d611203e4a98_2_mwpm_03200403.jpg" alt="">
+                        </div>
+                        <div>
+                            <a href="https://mini.eastday.com/mobile/201117173040935.html">别浪费英超喂饼王！曼联捡漏PK大巴黎，只要2500万欧？</a>
+                            <span>望京球王</span>
+                            <span>2020-11-17 17:30</span>
+                        </div>
+                    </li>
+                    
+					<li>
+                        <div>
+                            <img src="https://07imgmini.eastday.com/mobile/20201117/20201117173022_3bc57f30470ec647eaa3083b5aaecd11_1_mwpm_03200403.jpg" alt="">
+                        </div>
+                        <div>
+                            <a href="https://mini.eastday.com/mobile/201117173022815.html">热刺在最需要他的时候倒下了 穆帅用谁来盯斯特林</a>
+                            <span>望京球王</span>
+                            <span>2020-11-17 17:30</span>
+                        </div>
+                    </li>
+                    
+					<li>
+                        <div>
+                            <img src="https://00imgmini.eastday.com/mobile/20201117/2020111717_de585b25659d40c79047d17223c1624c_8758_mwpm_03200403.jpg" alt="">
+                        </div>
+                        <div>
+                            <a href="https://mini.eastday.com/mobile/201117173021589.html">宫斗戏？名记：威少私下听说哈登想去篮网，自己才提出交易申请</a>
+                            <span>小诸葛曼斯坦因</span>
+                            <span>2020-11-17 17:30</span>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <!--底部（联系我们）-->
+    <div class="footer">
+        <div class="footBox">
+            <div class="left">
+                <h5>官方网站：www.yuanfudao.com</h5>
+                <h6>客服电话：400-078-9100</h6>
+            </div>
+            <div class="right">
+                <span>联系我们：</span>
+                <img src="/news_l5/ybc_news_l5/static/images/ybc.jpg" alt="">
+            </div>
+        </div>
+       
+      
+      
+        
+    </div>
+</body>
+    <script src="/news_l5/ybc_news_l5/static/js/jquery-3.3.1.min.js"></script>
+</html>

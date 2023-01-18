@@ -1,0 +1,93 @@
+.page-diary-container {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: url('/static/images/diary.jpeg') no-repeat;
+    background-size: 40% 100%;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+}
+.page-diary {
+    width: 40%;
+}
+.page-diary-header {
+    margin-top: 15%;
+}
+.page-diary-weather {
+    float: right;
+    margin-left: 5%;
+    margin-right: 10%;
+}
+.page-diary-weather img {
+    width: 50px;
+}
+.page-diary-time {
+    float: right;
+    line-height: 50px;
+}
+.page-diary-title {
+    width: 100px;
+    margin: 0 auto;
+}
+.page-diary-text {
+    margin: 20px 13%;
+    /* 保留换行和空格 */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    /* 内容超出显示滚动条 */
+    max-height: 50%;
+    overflow: auto;
+}
+
+/* 大屏 高度比较小 */
+@media screen and (max-height: 880px) {
+    .page-diary-text {
+        max-height: 45%;
+    }
+}
+
+/*pad 宽度在640-1000之间*/
+@media screen and (min-device-width: 640px) and (max-device-width: 1000px) {
+    .page-diary-container {
+        background-size: 100% 100%;
+    }
+    .page-diary {
+        width: 90%;
+    }
+    .page-diary-time {
+        font-size: 20px;
+    }
+    .page-diary-text {
+        font-size: 20px;
+    }
+    .page-diary-header {
+        margin-top: 20%;
+    }
+    .page-diary-weather {
+        margin-right: 10%;
+    }
+}
+
+/*手机 宽度小于640*/
+@media screen and (max-device-width: 639px){
+    .page-diary-container {
+        background-size: 100% 100%;
+    }
+    .page-diary {
+        width: 90%;
+    }
+    .page-diary-header {
+        margin-top: 20%;
+    }
+    .page-diary-time {
+        font-size: 20px;
+    }
+    .page-diary-text {
+        font-size: 20px;
+        max-height: 55%;
+    }
+    .page-diary-weather {
+        margin-right: 10%;
+    }
+}

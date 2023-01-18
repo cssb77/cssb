@@ -1,0 +1,18 @@
+.page-login-wrap {
+    display: flex;
+    padding-top:40px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-login-wrap h1 {
+    margin-bottom: 50px;
+}
+
+.page-login-wrap input {
+    margin-bottom: 12px;
+}
+
+.page-login-wrap span {
+    color: red;
+}

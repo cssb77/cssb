@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的日记</title>
+    <link rel="stylesheet" href="/static/css/detail_u14_work.css">
+</head>
+<body>
+    <div class="page-diary-container">
+        <div class="page-diary">
+            <div class="page-diary-header">
+                <div class="page-diary-weather">
+                    <!-- {{t_weather}} -->
+                    <img src="/static/images/{{t_weather}}.png">
+                </div>
+                <div class="page-diary-time">
+                    {{t_year}}年{{t_month}}月{{t_day}}日
+                </div>
+                <div style="clear:both"></div>
+            </div>
+            <h3 class="page-diary-title">{{t_title}}</h3>
+            <div class="page-diary-text">{{t_diary}}</div>
+        </div>
+    </div>
+</body>
+</html>

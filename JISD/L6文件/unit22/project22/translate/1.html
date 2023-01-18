@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>智能翻译</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- 引入mui.css -->
+		<link href="../css/mui.css" rel="stylesheet" />
+		<!-- 引入picker组件css -->
+		<link href="css/mui.picker.min.css" rel="stylesheet" />
+		<style>
+			/* 设置页面背景 */
+			body {
+				background-image: url(images/bg.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				height: 100vh;
+			}
+			/* 设置主体内容样式 */
+			.mui-content {
+				background-color: transparent;
+			}
+			/* 设置文本域样式 */
+			textarea {
+				margin-top: 15px;
+				border: 6px solid #6dcbff;
+				border-radius: 20px;
+			}
+			/* 设置翻译按钮的样式 */
+			#fanyi {
+				width: 120px;
+				height: 40px;
+			}
+			/* 设置麦克风和照相机图标的样式 */
+			.icon {
+				width: 50px;
+				height: 50px;
+				margin-left: 10px;
+				margin-right: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- 标题栏 -->
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">智能翻译</h1>
+		</header>
+		<!-- 主体内容 -->
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<!-- 语言切换按钮 -->
+				<div style="text-align: center;">
+					<button id="yuyanBtn" type="button" class="mui-btn">
+						<span id="yuyanSpan">自动检测</span>
+						<span class="mui-icon mui-icon-arrowdown"></span>
+					</button>
+				</div>
+				<!-- 待翻译内容 -->
+				<textarea rows="8" placeholder="请输入要翻译的内容"></textarea>
+				<!-- 立即翻译按钮 -->
+				<div style="text-align: right;">
+					<img id="fanyi" src="images/btn-fanyi.png">
+				</div>
+				<!-- 翻译结果 -->
+				<textarea rows="8" readonly></textarea>
+				<!-- 麦克风和照相机图标 -->
+				<div style="text-align: center;">
+					<img class="icon" src="images/icon-mic.png">
+					<img class="icon" src="images/icon-camera.png">
+				</div>
+			</div>
+		</div>
+		
+	
+		<!-- 引入mui.js -->
+		<script src="../js/mui.js"></script>
+		<!-- 引入picker组件js -->
+		<script src="js/mui.picker.min.js"></script>
+		<!-- 引入root.js -->
+		<script src="../js/root.js"></script>
+		<script type="text/javascript">
+			//mui组件初始化
+			mui.init();
+			
+			//为“立即翻译”按钮绑定tap事件
+			mui("#fanyi")[0].addEventListener("tap",function(){
+				//获取待翻译内容
+				var text = mui("textarea")[0].value
+				//进行文本翻译
+				translate(text)
+			})
+			
+			//进行文本翻译
+			function translate(text){
+				// 显示系统等待对话框
+				plus.nativeUI.showWaiting("正在翻译，请稍后～")
+				mui.ajax(root + "/translate",{
+					type: "POST", //设置请求方式
+					data:{ //设置请求参数
+					    // 待翻译内容
+						text: text,
+						//输入的语言类型
+						
+						//输出的语言类型
+						
+					},
+					crossDomain:true, //使用5+跨域
+					success:function(data){ //请求成功的处理函数
+						// 关闭系统等待对话框
+						plus.nativeUI.closeWaiting()
+						if(data.code == 0){
+							//显示翻译结果
+							mui("textarea")[1].value = data.result
+						}else{
+							alert("翻译失败!")
+						}
+					},
+					error:function(){ //请求失败的处理函数
+						// 关闭系统等待对话框
+						plus.nativeUI.closeWaiting()
+						alert("请求失败!")
+					}
+				})
+			}
+		
+		</script>
+	</body>
+
+</html>

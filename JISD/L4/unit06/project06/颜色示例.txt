@@ -1,0 +1,10 @@
+红色：red
+蓝色：blue
+亚麻色：linen
+
+绿色：green
+粉红色：pink
+紫色：purple
+橙色：orange
+黄色：yellow
+灰色：grey

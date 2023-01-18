@@ -1,0 +1,461 @@
+.mainTop {
+    min-width: 768px;
+    height: 90px;
+    text-align: center;
+}
+.container{
+    width: 100%;
+}
+.mainTop .user{
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width:240px;
+    height:87px;
+    background-image: url(../images/taskbook.png);
+    background-size: 236px 52px;
+    background-position: center right;
+    background-repeat: no-repeat;
+    margin-right: 8px;
+    font-size:24px;
+    color:rgba(71,72,76,1);
+    text-align: right;
+}
+.user .userName{
+    line-height:33px;
+    position: absolute;
+    bottom: 0;
+    right: 3px;
+}
+.mainTop .monkey{
+    margin-right: 27px;
+}
+.mainTop .addtask{
+    font-size:14px;
+    color:rgba(73,74,87,1);
+    cursor: pointer;
+}
+.mainTop .addtask img{
+    margin-right: 10px;
+}
+#content{
+    padding: 40px 80px 30px;
+    box-sizing: border-box;
+}
+form{
+    line-height: 40px;
+    color:rgba(73,74,87,1);
+    margin-bottom: 30px;
+    min-width: 478px;
+}
+select{
+    width:163px;
+    height:40px;
+    background-color:rgba(32,53,128,0.01);
+    border-radius:3px;
+    border:1px solid rgba(32,53,128,0.16);
+    margin-right: 5%;
+    margin-left: 3px;
+    appearance:none;  
+    -moz-appearance:none;  
+    -webkit-appearance:none;  
+    /*在选择框的最右侧b中间显示小箭头图片*/  
+    background-image: url("../images/Shape.png");
+    background-repeat: no-repeat;
+    background-size: 10px 6px;
+    background-position: 148px 16px;
+    /*为下拉小箭头留出一点位置，避免被文字覆盖*/  
+    padding-right: 14px;  
+    padding-left: 4px; 
+    box-sizing: border-box; 
+}
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/  
+select::-ms-expand { display: none; } 
+
+.cont{
+    position: relative;
+    padding: 24px;
+    box-sizing: border-box; 
+    border-radius:8px;
+    border:1px solid rgba(233,236,241,1);
+}
+.cont::before{
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: 25px;
+    width: 89px;
+    height: 39px;
+    background-size: 89px 39px;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+.noFinsh::before{
+    background-image: url(../images/nofinish.png);
+}
+.noFinsh{
+    margin-bottom: 36px;
+}
+.finshed::before{
+    background-image: url(../images/hadfinish.png);
+}
+.listItem{
+    padding-bottom: 10px;
+    background:rgba(255,255,255,1);
+    margin-bottom: 8px;
+    box-shadow:0px 4px 8px 0px rgba(132,132,132,0.17);
+    border-radius:4px;
+    padding-left: 15px;
+    padding-right: 25px;
+    box-sizing: border-box;
+}
+.listItem + .listItem{
+    margin-top: 16px;
+}
+.listItem .time{
+    font-size: 12px;
+    color: rgba(169,169,169,0.8);
+    margin-right: 20px;
+    float: left;
+}
+.listItem p:nth-of-type(1){
+    overflow: hidden;
+}
+
+.note .object{
+    font-size: 12px;
+}
+.object.biancheng{
+    color:rgba(220,99,99,1);
+}
+.object.math{
+    color:rgba(86,144,240,1);
+}
+.listItem .noteCont{
+    font-size: 13px;
+    color:rgba(48,59,74,0.8);
+}
+.biancheng {
+    float: left;
+}
+.btn{
+    width: 40px;
+    height: 26px;
+    margin-left: 8px;
+    margin-top: 14px;
+    background-size: contain;
+    background-position:center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.rightBtn{
+    background-image: url(../images/b-finish.png);
+}
+.delBtn{
+    background-image: url(../images/b-del.png);
+}
+.repeatBtn{
+    background-image: url(../images/b-repeat.png);
+}
+.subjectTime {
+    padding-top: 65px;
+    min-width: 500px;
+}
+.dateSubjectWrap{
+    display: inline;
+}
+.taskDateWrap{
+    padding: 40px 80px 30px;
+    overflow: hidden;
+}
+@media screen and (min-width:768px) and (max-width:1336px){
+    .mainTop,.subjectTime {
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+    }
+    .mainTop{
+        padding: 40px 80px 30px;
+    }
+    .subjectTime{
+        padding-top: 70px;
+        padding-left: 0;
+    }
+}
+
+
+@media screen and (min-width:480px) and (max-width:767px){
+    .main{
+        margin: 0 -7px;
+    }
+    .mainTop{
+        min-width: auto;
+        padding: 0;
+    }
+    .taskDateWrap{
+        padding: 10px 10px 10px;
+    }
+    #content{
+        padding: 10px 10px 10px;
+    }
+    .noteCont{
+        width: 58%;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        float: left;
+    }
+    .subjectTime {
+        padding-left: 0;
+    }
+
+}
+
+@media screen and (min-width:320px) and (max-width:480px){
+    .mainTop{
+        min-width: 330px;
+        padding: 0;
+    }
+    .mainTop .user{
+        width: 48%;
+        background-size: 90px 52px;
+    }
+    .user .userName{
+        line-height: 25px;
+    }
+    .monkey{
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    .userName{
+        font-size: 1rem;
+    }
+    .subject{
+        width:60%;
+    }
+    .time{
+        width: 22%;
+    }
+    .displaInline label{
+        display: block;
+    }
+    .cityListWrap {
+        padding: 0;
+        float: left;
+        width: 50%;
+    }
+    .city{
+        width: 91%;
+        height: 4rem;
+        border-radius: 10px;
+        margin:0 1rem;
+    }
+    .m-text{
+        max-width: 920px;
+        padding: 0 0px;
+        margin-top: 20px;
+    }
+    .m-text >div{
+        text-align: left;
+        display: block;
+        padding: 0 3rem;
+        font-size: 1rem;s
+        line-height: 1.5rem;
+    }
+    .city div{
+        line-height: 4rem;
+    }
+    .cityair,.cityname{
+        font-size: 1rem;
+    }
+    .cityList{
+        width: 100%;
+    }
+    .location{
+        width: 85%;
+        height: 11rem;
+        margin: 0;
+        margin-left: 5%;
+        padding: 10px;
+        margin-bottom: 1.5rem;
+    }
+    .main{
+        margin: 0 -7px;
+    }
+    header{
+        padding: 10px;
+    }
+    .margin0{
+        margin: 0;
+    }
+    .padding0{
+        padding: 0;
+    }
+    .width28{
+        width: 35%;
+    }
+    .width12{
+        width: 12%;
+    }
+    .gobackWrap{
+        width: 35%;
+    }
+    .subjectTime{
+        min-width: auto;
+        padding-top: 20px;
+        padding-left: 0;
+    }
+    .subjectTime form{
+        min-width: auto;
+    }
+    .subjectTime select{
+        width: auto;
+        margin: 0;
+    }
+    #content{
+        padding: 1rem;
+        margin: 0;
+    }
+    .taskDateWrap{
+        padding: 3px;
+        overflow: hidden;
+    }
+    .note{
+        width: 65%;
+        display: inline-block;
+    }
+    .noteCont{
+        width: 58%;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        float: left;
+    }
+}
+@media screen and (max-width:320px){
+    .mainTop{
+        min-width: auto;
+        padding: 0;
+    }
+    .mainTop .user{
+        width: 43%;
+        background-size: 90px 52px;
+    }
+    .user .userName{
+        line-height: 25px;
+    }
+    .monkey{
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    .userName{
+        font-size: 1rem;
+    }
+    .subject{
+        width:60%;
+    }
+    .time{
+        width: 22%;
+    }
+    .displaInline label{
+        display: block;
+    }
+    .cityListWrap {
+        padding: 0;
+        float: left;
+        width: 50%;
+    }
+    .city{
+        width: 91%;
+        height: 4rem;
+        border-radius: 10px;
+        margin:0 1rem;
+    }
+    .m-text{
+        max-width: 920px;
+        padding: 0 0px;
+        margin-top: 20px;
+    }
+    .m-text >div{
+        text-align: left;
+        display: block;
+        padding: 0 3rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    .city div{
+        line-height: 4rem;
+    }
+    .cityair,.cityname{
+        font-size: 1rem;
+    }
+    .cityList{
+        width: 100%;
+    }
+    .location{
+        width: 85%;
+        height: 11rem;
+        margin: 0;
+        margin-left: 5%;
+        padding: 10px;
+        margin-bottom: 1.5rem;
+    }
+    .main{
+        margin: 0 -7px;
+    }
+    header{
+        padding: 10px;
+    }
+    .margin0{
+        margin: 0;
+    }
+    .padding0{
+        padding: 0;
+    }
+    .width28{
+        width: 35%;
+    }
+    .width12{
+        width: 12%;
+    }
+    .gobackWrap{
+        width: 35%;
+    }
+    .subjectTime{
+        min-width: auto;
+        padding-top: 20px;
+    }
+    .subjectTime form{
+        min-width: auto;
+    }
+    .subjectTime select{
+        width: 90%;
+    }
+    #content{
+        padding: 1rem;
+        margin: 0;
+    }
+    .data,.object{
+        display: block;
+    }
+    .dateSubjectWrap{
+        width: 50%;
+        float: left;
+    }
+    .listItem{
+        padding: 0;
+    }
+    .taskDateWrap{
+        padding: 3px;
+    }
+    .noteCont{
+        width: 58%;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        float: left;
+    }
+}

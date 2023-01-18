@@ -1,0 +1,13 @@
+.page-add-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-add-wrap form {
+    margin-top: 12px;
+}
+
+.page-add-wrap select, textarea {
+    margin-bottom: 12px;
+}

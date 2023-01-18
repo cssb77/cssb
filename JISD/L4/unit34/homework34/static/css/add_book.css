@@ -1,0 +1,72 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.page-add-container {
+    background-image: url('/static/images/bg_book.jpeg');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.form-container {
+    position: absolute;
+    bottom: 15%;
+    left: 10%;
+    background-color: rgba(255,255,255,0.3);
+    border-radius:30px;
+    width:450px;
+    height:260px;
+    background-color: rgba(255,255,255,0.8);
+    box-shadow: 0px 5px 5px 5px rgba(0, 0, 0, 0.1);
+    margin:0 0 15px 0px;
+    overflow:hidden;
+}
+
+form {
+    margin: 40px;
+    border: dashed 2px silver;
+    border-radius: 5px;
+    vertical-align: center;
+    text-align: center;
+    padding:3.5%;
+}
+
+form input[type="text"] {
+    height: 30px;
+    width: 280px;
+    margin-bottom: 6px;
+}
+
+.upload-item button{
+    width: 80px;
+    height: 30px;
+    color: #fff;
+    background-color: skyblue;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.upload-item input{
+    display: none;
+}
+
+.submit-btn {
+    width: 300px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: DarkSlateGray !important;
+    color:white;
+    font-size: 18px;
+    border: 0px;
+}
+.submit-btn:hover {
+    background-color: #393939;
+}
+
+
+
+

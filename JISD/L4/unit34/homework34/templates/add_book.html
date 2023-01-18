@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加书籍</title>
+    <link rel="stylesheet" href="static/css/add_book.css">
+</head>
+<body>
+    <div class="page-add-container">
+        <div class="form-container">
+            <form id="movie-form" action="/add_book_check" method="post" enctype="multipart/form-data">
+                <div>
+                    <input type="text" name="name" required placeholder="喜欢的书籍名字">
+                </div>
+                <div class="upload-item">
+                    <button type="button" class="btn" onclick="file.click()">上传图片</button>
+                    <input type="file" id="file" name="img" onchange="setUploadFile()">
+                    <span id="file-name"></span>
+                </div>
+                <br>
+                <div class="int">
+                    <input type="submit" class="submit-btn" onclick="checkFile(event)">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="static/js/base.js"></script>
+</body>
+</html>

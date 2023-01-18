@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    background: url(../images/mainbg.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+.pl{
+    padding-left: 0!important;
+}
+.indent {
+    text-indent:20px;
+}
+.indent a{
+    text-indent:10px;
+    color:white;
+    font-size:14px;
+}
+.vm{
+    vertical-align: middle!important;
+}
+.mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.76;
+    z-index: 1;
+}
+/* 头部导航 */
+.navbar-default {
+    background-color: transparent;
+    border: none;
+    height: 110px;
+}
+.navbar-toggle{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.navbar-default .navbar-brand:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.navbar-default .navbar-brand:visited {
+    color: #fff;
+    text-decoration: none;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.navbar-default .navbar-brand,
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.7rem;
+    
+}
+.box {
+    position: relative;
+    margin: 0 auto;
+    max-width: 1920px;
+    height: 100%;
+    overflow: auto;
+    top: 0px;
+    box-sizing: border-box;
+    z-index: 999;
+    color: #fff;
+    font-size: 16px;
+}
+
+/* 小屏幕（平板，大于等于 768px） */
+@media screen and (max-width: 768px) { 
+    .mynav_leftuser{line-height: 22px;padding-top: 8px;}
+    .navbar-header{height: 90px;}
+    .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+        background-color: #e7e7e7;
+    }
+    .mobiologinangregist{
+        background-color: rgba(255,255,255,0) !important;
+    }
+}
+@media screen and (min-width: 1000px){
+    .navbar-default {
+        border-bottom: 1px solid rgba(255,255,255,0.33);
+        margin-left:2.6rem;
+        margin-right:2.6rem;
+    }
+    .navbar-default .navbar-brand,
+    .navbar-default .navbar-nav>li>a {
+        font-size: 0.6rem;
+        line-height: 80px;
+    }
+.mynav_user{
+       position: fixed;
+       left: 50%;
+       top: 15px;
+       transform: translateX(-50%); 
+    }
+}
+
+
+
+.mainContiner {
+    padding: 2rem 3rem;
+}
+
+/* .boxone, .boxtwo{
+    padding: 0 20%;
+} */
+.mainTitle {
+    line-height: 3.5rem;
+    padding-left: 1.2rem;
+    font-size: 0.85rem;
+}
+
+.shape1 {
+    margin-bottom: 1.25rem;
+}
+.shape1 a,.shape2 a{
+    display: block;
+    margin: 0 0.3rem;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    line-height: 3rem;
+    text-align: center;
+    color: #fff;
+    font-size: 0.8rem;
+}
+.shape1 a:hover,.shape2 a:hover{
+    text-decoration: none;
+    color: #407FFF;
+    border: 1px solid #407FFF;
+}
+.loginBtn,.loginOutBtn{
+    display: inline-block!important;padding-right: 5px!important;
+}
+.registBtn{
+    display: inline-block!important;padding-left: 2px!important;
+}
+.manypeopleplay{
+    margin-top: 60px;
+}
+.vm {
+    height: 60px;
+    width:60px;
+    border-radius: 100%;
+}

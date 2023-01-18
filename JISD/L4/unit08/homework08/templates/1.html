@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打字小游戏</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="http://show.ybccode.com/static/typing/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://show.ybccode.com/l3l4/static/typing/css/common.css">
+    <link rel="stylesheet" type="text/css" href="http://show.ybccode.com/l3l4/static/typing/css/index.css">
+</head>
+<body>
+    <div class = "mask"></div>
+    <div id ="bg"></div>
+    <div id="container">
+        <header>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 margin0 padding0 width28 gobackWrap">
+                <a href="main" class="goBack">
+                    <img src="http://show.ybccode.com/l3l4/static/typing/images/back.png">
+                    <span class="goBackIndex">返回首页</span>
+                </a>
+            </div>
+            <div class="col-xs-2 col-sm-2 hidden-sm hidden-md hidden-lg margin0 padding0 width12 fanIcon ">
+                <img class="" src="http://show.ybccode.com/l3l4/static/typing/images/avatar.png">
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 hidden-xs">
+                <img src="http://show.ybccode.com/l3l4/static/typing/images/avatar.png">
+                <span class="welcomtitle">欢迎使用的工具箱</span>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pull-right">
+
+                <div class="pull-right welcomt">欢迎小朋友~</div>
+
+            </div>
+        </header>
+
+        <div class="main">
+            <div class="gameWrap">
+                <div id = "game">
+                    <canvas id="main" width="800" height="530">
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        COPYRIGHT©  2018
+    </div>
+    <script>
+        var canvas = document.getElementById('main')
+        var ctx = canvas.getContext('2d')
+        //背景图
+        var bgImg = new Image()
+        bgImg.src = 'http://show.ybccode.com/l3l4/static/typing/images/bg.png'
+        //分数背景图
+        var scoreImg = new Image()
+        scoreImg.src = 'http://show.ybccode.com/l3l4/static/typing/images/score.png'
+        //时间背景图
+        var timeImg = new Image()
+        timeImg.src = 'http://show.ybccode.com/l3l4/static/typing/images/time.png'
+        //Miss图片
+        var missImg = new Image()
+        missImg.src = 'http://show.ybccode.com/l3l4/static/typing/images/miss.png'
+        //连对图片
+        var levelAry = []
+        for (var i = 0; i < 7; i++) {
+            var levelImg = new Image()
+            levelImg.src = 'http://show.ybccode.com/l3l4/static/typing/images/level' + i + '.png'
+            levelAry.push(levelImg)
+        }
+
+
+        //画布的宽和高
+        var canvasWidth = 800
+        var canvasHeight = 530
+
+
+        // 存储3种类型词库的数组
+        var wordsLib = [
+            [{ "en": "cat", "zh": "猫" }, { "en": "dog", "zh": "狗" }, { "en": "pig", "zh": "猪" }, { "en": "duck", "zh": "鸭" }, { "en": "rabbit", "zh": "兔子" }, { "en": "horse", "zh": "马" }, { "en": "elephant", "zh": "大象" }, { "en": "ant", "zh": "蚂蚁" }, { "en": "fish", "zh": "鱼" }, { "en": "bird", "zh": "鸟" }, { "en": "snake", "zh": "蛇" }, { "en": "mouse", "zh": "鼠" }, { "en": "kangaroo", "zh": "袋鼠" }, { "en": "monkey", "zh": "猴子" }, { "en": "panda", "zh": "熊猫" }, { "en": "bear", "zh": "熊" }, { "en": "lion", "zh": "狮" }, { "en": "tiger", "zh": "老虎" }, { "en": "fox", "zh": "狐狸" }, { "en": "zebra", "zh": "斑马" }, { "en": "deer", "zh": "鹿" }, { "en": "giraffe", "zh": "长颈鹿" }, { "en": "goose", "zh": "鹅" }, { "en": "hen", "zh": "母鸡" }, { "en": "turkey", "zh": "火鸡" }, { "en": "lamb", "zh": "小羊" }, { "en": "sheep", "zh": "绵羊" }, { "en": "goat", "zh": "山羊" }, { "en": "cow", "zh": "奶牛" }, { "en": "shark", "zh": "鲨鱼" }, { "en": "seal", "zh": "海豹" }],
+            [{ "en": "pen", "zh": "钢笔" }, { "en": "pencil", "zh": "铅笔" }, { "en": "pencil-case", "zh": "铅笔盒" }, { "en": "ruler", "zh": "尺子" }, { "en": "book", "zh": "书" }, { "en": "bag", "zh": "包" }, { "en": "post card", "zh": "明信片" }, { "en": "newspaper", "zh": "报纸" }, { "en": "schoolbag", "zh": "书包" }, { "en": "eraser", "zh": "橡皮" }, { "en": "crayon", "zh": "蜡笔" }, { "en": "sharpener", "zh": "卷笔刀" }, { "en": "story-book", "zh": "故事书" }, { "en": "notebook", "zh": "笔记本" }],
+            [{ "en": "bike", "zh": "自行车" }, { "en": "bus", "zh": "公共汽车" }, { "en": "train", "zh": "火车" }, { "en": "boat", "zh": "小船" }, { "en": "ship", "zh": "轮船" }, { "en": "yacht", "zh": "快艇" }, { "en": "car", "zh": "小汽车" }, { "en": "taxi", "zh": "出租车" }, { "en": "jeep", "zh": " 吉普车" }, { "en": "van", "zh": " 小货车" }, { "en": "plane", "zh": "飞机" }, { "en": "subway", "zh": "地铁" }, { "en": "motor cycle", "zh": "摩托车" }]
+        ]
+
+        //单词词库
+        // var words = [{ en: "cat", zh: "猫" }, { en: "dog", zh: "狗" }, { en: "pig", zh: "猪" }, { en: "duck", zh: "鸭" }, { en: "rabbit", zh: "兔子" }, { en: "horse", zh: "马" }, { en: "elephant", zh: "大象" }, { en: "ant", zh: "蚂蚁" }, { en: "fish", zh: "鱼" }, { en: "bird", zh: "鸟" }, { en: "snake", zh: "蛇" }, { en: "mouse", zh: "鼠" }, { en: "kangaroo", zh: "袋鼠" }, { en: "monkey", zh: "猴子" }, { en: "panda", zh: "熊猫" }, { en: "bear", zh: "熊" }, { en: "lion", zh: "狮" }, { en: "tiger", zh: "老虎" }, { en: "fox", zh: "狐狸" }, { en: "zebra", zh: "斑马" }, { en: "deer", zh: "鹿" }, { en: "giraffe", zh: "长颈鹿" }, { en: "goose", zh: "鹅" }, { en: "hen", zh: "母鸡" }, { en: "turkey", zh: "火鸡" }, { en: "lamb", zh: "小羊" }, { en: "sheep", zh: "绵羊" }, { en: "goat", zh: "山羊" }, { en: "cow", zh: "奶牛" }, { en: "shark", zh: "鲨鱼" }, { en: "seal", zh: "海豹" }]
+        var index = parseInt(Math.random() * wordsLib.length)
+        var words = wordsLib[index]
+
+        //存储多个单词的列表
+        var wordList = []
+        wordList.push(nextWord())
+
+        //存储用户输入的字符
+        var line = ''
+        //存储得分
+        var score = 0
+        //存储时长
+        var time = 60
+        //存储是否Miss了单词
+        var mark = 0
+        //存储是否是连对状态
+        var sign = false
+        //存储连对的个数
+        var count = 0
+
+        window.onload = function () {
+            document.onkeydown = function (e) {
+                if (e.keyCode == 8) {
+                    if (line.length > 0) {
+                        line = line.substr(0, line.length - 1)
+                    }
+                } else {
+                    line = line + e.key
+                }
+            }
+
+            //每隔2秒插入一个新单词
+            var timerNextWord = setInterval(function () {
+                var word = nextWord()
+                wordList.push(word)
+            }, 1000)
+            var timerCanvas = setInterval(gameHandler, 1000 / 60)
+
+            var timer = setInterval(function () {
+                time = time - 1
+            }, 1000)
+            setTimeout(function () {
+                clearInterval(timer)
+                clearInterval(timerNextWord)
+                clearInterval(timerCanvas)
+                ctx.drawImage(timeImg, 647, 10)
+                ctx.font = '20px Arial'
+                ctx.fillStyle = '#074f6d'
+                ctx.fillText(0, 670, 52)
+            }, 60 * 1000)
+        }
+
+        function gameHandler() {
+            //绘制背景
+            ctx.drawImage(bgImg, 0, 0)
+            //调用绘制单词的方法
+            drawWord()
+            //绘制用户输入的字符
+            ctx.font = '30px Arial'
+            ctx.fillStyle = '#ffffff'
+            ctx.fillText(line, 300, 470)
+            //绘制得分
+            ctx.drawImage(scoreImg, 5, 5)
+            ctx.font = '20px Arial'
+            ctx.fillStyle = '#074f6d'
+            ctx.fillText(score, 20, 45)
+            //绘制时间
+            ctx.drawImage(timeImg, 647, 10)
+            ctx.font = '20px Arial'
+            ctx.fillStyle = '#074f6d'
+            ctx.fillText(time, 670, 52)
+            //绘制Miss图片
+            if (mark == -1) {
+                ctx.drawImage(missImg, 653, 433)
+            }
+            //绘制连对图片
+            showLevel()
+            //调用单词移动的方法
+            moveWord()
+            //匹配单词
+            matchWord()
+            //删除消失的单词
+            deleteWord()
+        }
+
+        //展示连对状态
+        function showLevel() {
+            if (sign == false) {
+                return
+            }
+            if (count >= 5 && count < 10) {
+                ctx.drawImage(levelAry[count - 5], 653, 433)
+            } else if (count >= 10 && count < 30) {
+                ctx.drawImage(levelAry[levelAry.length - 2], 653, 433)
+            } else if (count == 30) {
+                ctx.drawImage(levelAry[levelAry.length - 1], 653, 433)
+            }
+        }
+
+        //单词匹配函数
+        function matchWord() {
+            var flag = false
+            for (var i = 0; i < wordList.length; i++) {
+                var w = wordList[i]
+                if (w.isShow == true) {
+                    var index = w.en.indexOf(line)
+                    if (index == 0) {
+                        if (w.en.length == line.length) {
+                            flag = true
+                            w.isShow = false
+                            score = score + 100
+                            //记录连对状态
+                            sign = true
+                            count += 1
+                            setTimeout(function(){
+                                sign = false
+                            },500)
+                        } else {
+                            //存储匹配部分
+                            w.m = line
+                        }
+
+                    } else {
+                        //清空匹配部分
+                        w.m = ''
+                    }
+                }
+            }
+            if (flag == true) {
+                line = ''
+            }
+        }
+
+        //删除消失的单词
+        function deleteWord() {
+            for (var i = wordList.length - 1; i >= 0; i--) {
+                var word = wordList[i]
+                if (word.isShow == false) {
+                    wordList.splice(i, 1)
+                }
+            }
+        }
+
+        //随机选取单词
+        function nextWord() {
+            //从词库中随机选一个单词
+            var i = parseInt(Math.random() * words.length)
+            //使用对象字面量创建对象
+            var word = {}
+            word.text = words[i].en + ' ' + words[i].zh
+            var x = getX4word(word.text)
+            word.x = x
+            word.y = 0
+            word.isShow = true
+            //存储单词对应的英文
+            word.en = words[i].en
+            //存储匹配部分
+            word.m = ''
+            return word
+        }
+
+        //单词移动
+        function moveWord() {
+            //遍历单词数组
+            for (var i = 0; i < wordList.length; i++) {
+                //从数组中取出单词对象
+                var word = wordList[i]
+                // 实现单词向下移动
+                if (word.isShow == true) {
+                    word.y = word.y + 0.5
+                    // 单词出下边界后将单词状态设置为无效
+                    if (word.y >= 400) {
+                        word.isShow = false
+                        //记录用户错过了单词
+                        mark = -1
+                        //0.5秒后取消Miss
+                        setTimeout(function () {
+                            mark = 0
+                        }, 500)
+                        //连对中止
+                        count = 0
+                    }
+                }
+            }
+        }
+
+        //绘制单词
+        function drawWord() {
+            //遍历单词数组
+            for (var i = 0; i < wordList.length; i++) {
+                //从数组中取出单词对象
+                var word = wordList[i]
+                //写文字
+                if (word.isShow == true) {
+                    ctx.font = "20px Arial"
+                    ctx.fillStyle = "#ffffff"
+                    ctx.fillText(word.text, word.x, word.y)
+                    //绘制匹配部分
+                    ctx.fillStyle = "#ffff00"
+                    ctx.fillText(word.m, word.x, word.y)
+                }
+            }
+        }
+
+        //获取单词的X坐标
+        function getX4word(word) {
+            var canvas = document.getElementById('main')
+            var ctx = canvas.getContext('2d')
+            //注意大小和字体需和写文字时用的大小和字体保持一致
+            ctx.font = "20px Arial"
+            var minX = 124
+            var maxX = (canvasWidth - 124) - ctx.measureText(word).width
+            var x = minX + parseInt(Math.random() * (maxX - minX))
+            return x
+        }
+
+    </script>
+
+</body>
+
+</html>

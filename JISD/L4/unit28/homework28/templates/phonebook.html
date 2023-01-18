@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>通讯录</title>
+    <link rel="stylesheet" href="static/css/phonebook_u28_work.css">
+<body class="bg">
+    <div class="words">
+        <h2>我的通讯录</h2>
+    </div>
+    <div class="box">
+        <div class="lay">
+            <!-- 查询 -->
+            <form action="/find" method="post">
+                <div class="search">
+                    <input class="input" type="text" placeholder="请输入..." name="name">
+                    <input class="button" type="submit" value="查询">
+                </div>
+            </form>
+
+            <!-- 通讯录详情 -->
+            <!-- 【提示】for循环遍历通讯录数据t_res，每一项数据存储在变量i中 -->
+            {% for i in t_res %}
+                <div class="card">
+                    <div class="img">
+                        <img src="static/image/zy.png">
+                    </div>
+                    <div class="name">
+                        <p>{{ i['name'] }}</p>
+                    </div>
+                    <div class="info">
+                        <div class="block">
+                            <img src="static/image/gender.png">
+                            <span>{{ i['gender'] }}</span>
+                        </div>
+                        <div class="block">
+                            <img src="static/image/age.png">
+                            <span>{{ i['age'] }}</span>
+                        </div>
+                        <div class="block">
+                            <img src="static/image/number.png">
+                            <span>{{ i['number'] }}</span>
+                        </div>
+                    </div>
+                </div>
+            <!-- 【提示】一次循环中，html显示结束的标志(endfor) -->
+            {% endfor %}
+
+            <!-- 新增同学录 -->
+            <div class="add">
+                <div class="line">
+                    <a href="/add">
+                        <img src="static/image/create.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

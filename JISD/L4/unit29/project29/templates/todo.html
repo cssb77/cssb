@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的任务本</title>
+</head>
+<body>
+    <h1>{{ t_username }} 的任务本</h1>
+    <a href="/logout">退出</a>
+    <br><br>
+
+    <!-----------------------未完成---------------------->
+    <!-- 【提示2】显示任务列表（t_todos）中的信息：
+                日期：date，科目：subject，内容：content，状态：state -->
+
+    <!-- 【提示3】设置标题（未完成） -->
+    <!-- 【提示3】通过模板if语句判断，只展示状态（state）为“”“”“"未完成"的任务 -->
+    <!-- 【提示5】删除任务状态（state） -->
+    <h2>未完成:</h2>
+
+    {% for i in t_todos %}
+        {%if i ['state'] == '未完成' %}
+            <p>
+                {{ i['date'] }}
+                【{{i['subject'}}】
+                {{ i['content'] }}
+                {{ i['state'] }}
+            </p>
+        {% endif %}
+    {% endfor %}
+
+    <!-----------------------已完成---------------------->
+    <!-- 【提示4】设置标题（已完成） -->
+    <!-- 【提示4】显示已完成的任务 -->
+    <!-- 【提示5】删除任务状态（sate） -->
+    <h2>已完成:</h2>
+    {% for i in t_todos %}
+        {%if i ['state'] == '已完成' %}
+            <p>
+                {{ i['date'] }}
+                【{{i['subject'}}】
+                {{ i['content'] }}
+                {{ i['state'] }}
+            </p>
+        {% endif %}
+    {% endfor %}
+
+</body>
+</html>
+

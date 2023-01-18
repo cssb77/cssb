@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>通讯录</title>
+    <link rel="stylesheet" href="static/css/add.css">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.2/css/all.css">
+    <style>
+        .int {
+            position: relative;
+            width: 300px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body class="bg">
+    <div class="words">
+        <h2>我的通讯录</h2>
+    </div>
+    <div class="box">
+        <div class="lay">
+            <!-- 查询 -->
+            <form action="/" method="post">
+                <div class="search">
+                    <input class="input" type="text" placeholder="请输入..." name="name">
+                    <input class="button" type="submit" value="查询">
+                </div>
+            </form>
+
+            <!-- 同学录详情 -->
+            {% for contact in t_contact_list %}
+            <div class="card">
+                <div class="img">
+                    <img src="static/images/zy.png" alt="">
+                </div>
+                <div class="name">
+                    <p>{{ contact.name }}</p>
+                </div>
+                <div class="info">
+                    <div class="block">
+                        <img src="static/images/gender.png" alt="">
+                        <span>{{ contact.gender }}</span>
+                    </div>
+                    <div class="block">
+                        <img src="static/images/age.png" alt="">
+                        <span>{{ contact.age }}</span>
+                    </div>
+                    <div class="block">
+                        <img src="static/images/number.png" alt="">
+                        <span>{{ contact.number }}</span>
+                    </div>
+                </div>
+                <div id="divFloat">
+                    <span class="cell cell1">
+                        <a href="/insert?_id={{ contact._id }}" onclick="openDialog()">修改</a>
+                    </span>
+                    <span class="cell cell2">
+                        <a href="/delete?_id={{ contact._id }}">删除</a>
+                    </span>
+                </div>
+            </div>
+            {% endfor %}
+
+            <!-- 新增同学录 -->
+            <div class="add">
+                <div class="line">
+                    <a href="/add">
+                        <img src="static/images/create.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="light" class="white_content">
+        <form action="/insert" method="post">
+            <div>
+                <label class="pure-material-textfield-outlined">
+                    <input placeholder=" " value="{{ t_data_list['name'] }}" name="name" required>
+                    <span>姓名</span>
+                </label>
+            </div>
+            {% if t_data_list.get('gender') == '女' %}
+            <div class="gender-selector">
+                <input type="radio" name="gender" id="女" value="女" checked>
+                <label for="女">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x female"></i>
+                        <i class="fa fa-venus fa-stack-1x fa-inverse"></i>
+                    </span>
+                </label>
+                <input type="radio" name="gender" id="男" value="男">
+                <label for="男">
+                    <span class="fa-stack fa-lg" id="space">
+                        <i class="fa fa-circle fa-stack-2x male"></i>
+                        <i class="fa fa-mars fa-stack-1x fa-inverse"></i>
+                    </span>
+                </label>
+            </div>
+            {% else %}
+            <div class="gender-selector">
+                <input type="radio" name="gender" id="女" value="女">
+                <label for="女">
+                    <span class="fa-stack fa-lg">
+                        <i class="fa fa-circle fa-stack-2x female"></i>
+                        <i class="fa fa-venus fa-stack-1x fa-inverse"></i>
+                    </span>
+                </label>
+                <input type="radio" name="gender" id="男" value="男" checked>
+                <label for="男">
+                    <span class="fa-stack fa-lg" id="space">
+                        <i class="fa fa-circle fa-stack-2x male"></i>
+                        <i class="fa fa-mars fa-stack-1x fa-inverse"></i>
+                    </span>
+                </label>
+            </div>
+            {% endif %}
+            <div>
+                <label class="pure-material-textfield-outlined">
+                    <input placeholder=" " value="{{ t_data_list['age'] }}" name="age" required>
+                    <span>年龄</span>
+                </label>
+            </div>
+            <div>
+                <label class="pure-material-textfield-outlined">
+                    <input placeholder=" " value="{{ t_data_list['number'] }}" name="number" required>
+                    <span>联系方式</span>
+                </label>
+            </div>
+            <div class="int">
+                <input id="sSubmit" type="submit" value="确认">
+            </div>
+        </form>
+        <div class="int">
+            <a  href = "/contact">
+                <input id="cSubmit" type="submit" value="关闭">
+            </a>
+        </div>
+    </div>
+    <div id="fade" class="black_overlay"></div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线翻译</title>
+    <link rel="stylesheet" href="/static/css/trans_u15.css">
+</head>
+<body>
+    <div class="page-form-container">
+        <h1>在线小翻译</h1>
+        <!-- 【提示1】完善<form>标签，具体为：
+                     设置表单提交地址为："/do_trans"
+                     设置表单提交方式为："get" 
+        -->
+        <form>
+            <!-- 【提示4】创建模板变量t_text(位置：</textarea>前面) -->
+            <!-- 【提示5】设置多行文本输入框内容为必填 -->
+            <textarea name="text" cols="30" rows="10"></textarea>
+            <br>
+            <input type="submit" value="翻译">
+        </form>
+        <!-- 【提示3】创建模板变量t_result(位置：</p>前面) -->
+        <p></p>
+    </div>
+</body>
+</html>
+
+

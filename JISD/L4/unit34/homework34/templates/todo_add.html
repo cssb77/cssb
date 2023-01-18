@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>添加任务</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/form.css">
+</head>
+<body>
+<div class="mask"></div>
+<div id="bg"></div>
+<div id="container">
+    <header>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 margin0 padding0 width28 gobackWrap">
+            <a href="/todo" class="goBack">
+                <img src="/static/images/back.png">
+                <span class="goBackIndex">返回上一级</span>
+            </a>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 hidden-xs wel">
+            <img class="hidden-sm hidden-xs vm" height="60" src="/static/images/avatar.png">
+            <span class="welcomtitle">欢迎使用{{ username }}的工具箱</span>
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pull-right">
+            <!--<div class="pull-right welcomt"><a class="loginOutBtn" href="/logout">退出登录</a></div>-->
+        </div>
+    </header>
+    <div class="main">
+        <div class="mainLeft fl">
+				  <span class="user">
+					  <span class="userName">{{t_username}}的任务本</span>
+				  </span>
+            <img class="monkey" height="90" src="/static/images/work.png" alt="">
+        </div>
+        <div id="content">
+            <form action="/add_check" method="post">
+                <div class="inputBox clearfix">
+                    <div class="displaInline subject">
+                        <label class="fl" for="data">科目：</label>
+                        <select name="subject" id="data">
+                            {% for i in t_options %}
+                            <option value={{ i }}>{{ i }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="displaInline time">
+                        <label>时间：</label>
+                        <span class="time">{{ t_date }}</span>
+                    </div>
+                </div>
+                <div class="textareaBox clearfix">
+                    <label class="fl" for="contText">内容：</label>
+                    <textarea name="content" id="contText" required></textarea>
+                    <label class="submitLabel" for="sub"></label>
+                    <input id="sub" type="submit" value="">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    COPYRIGHT© {{t_username}} 2019
+</div>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人名片</title>
+    <link rel="stylesheet" href="static/css/info_u14.css">
+</head>
+<body>
+    <div class="row">
+        <div class="img">
+            <img src="static/images/zy.png">
+        </div>
+        <div class="name">
+            <span>{{t_name}}</span>
+        </div>
+
+        <div class="age">
+            <p>年龄：{{t_age}}</p>
+            <!-- 【提示6】创建模板变量t_（位置：在"性别："之后） -->
+            <p>性别:{{t_gender}}</p>
+            <p class="page-info-text">个人简介：{{t_info}}</p>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新建任务</title>
+    <link rel="stylesheet" href="static/css/add_u34.css">
+</head>
+<body>
+    <!-- 在添加任务页面创建超链接：可以跳转到任务列表页面，即返回上一页-->
+    <a href="/todo">返回上一页</a>
+    <div class="page-add-wrap">
+        <h1>新建任务</h1>
+        <form action="/add_check" method="post">
+            科目：
+            <select name="subject">
+                {% for i in t_options %}
+                    <option value={{ i }}>{{ i }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <div>时间： {{ t_date }}</div>
+            <br>
+            任务内容：
+            <br>
+            <textarea name="content" cols="30" rows="10" required></textarea>
+            <br>
+            <input type="submit">
+        </form>
+    </div>
+</body>
+</html>

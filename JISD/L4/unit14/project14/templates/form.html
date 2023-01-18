@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填写个人信息</title>
+    <link rel="stylesheet" href="/static/css/form_u14.css">
+</head>
+<body>
+    <form class="page-form" action="/info" method="post">
+        姓名：<input type="text" name="name">
+        <br>
+        年龄：<input type="text" name="age">
+        <br>
+        性别：
+        <!--
+            【提示4】定义性别(单选按钮组) ，两个单选按钮分别如下：
+            数据名称："gender" ，值："男孩"，选项名称：男孩
+            数据名称："gender" ，值："女孩"，选项名称：女孩
+        -->
+        <input type="radio" name="gender" value="男孩">男孩
+        <input type="radio" name="gender" value="女孩">女孩
+        <br>
+        个人简介：
+        <br>
+        <textarea rows="4" cols="30" name="info"></textarea>
+        <br>
+        <input type="submit">
+    </form>
+</body>
+</html>
+

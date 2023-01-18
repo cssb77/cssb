@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>写日记</title>
+    <link rel="stylesheet" href="/static/css/diary_u14_work.css">
+</head>
+<body>
+    <div class="page-form-container">
+        <form class="page-form" action="/detail" method="post">
+            时间：
+            <input type="text" name="year" class="page-form-time">年
+            <input type="text" name="month" class="page-form-time">月
+            <input type="text" name="day" class="page-form-time">日
+            <br>
+            天气：
+            <!--
+                【提示1】 定义天气单选按钮组（由三个单选按钮组成）
+                每个单选按钮的数据名称（name属性）为："weather"
+                三个单选按钮的值分别为："晴"、"阴"、"雨"
+                三个单选按钮的选项名称分别为：晴，阴，雨 
+            -->
+            <input type="radio"name="weather"value="晴">晴
+            <input type="radio"name="weather"value="阴">阴
+            <input type="radio"name="weather"value="雨">雨
+
+
+            <br>
+            标题：<input type="text" name="title" class="page-form-title">
+            <br>
+            正文：
+            <br>
+            <!--
+                多行文本输入框
+                数据名称（name属性）为："diary"
+                列数（cols属性）为：80
+                可见行数（rows属性）为：20
+            -->
+            <textarea name="diary" cols="80" rows="20">
+            </textarea>
+            <br>
+            <input type="submit">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+    <link rel="stylesheet" href="static/css/login_u32.css">
+</head>
+<body>
+    <div class="page-login-wrap">
+        <h1>用户登录</h1>
+
+        <form action="/login_check" method="post">
+            账号：
+            <input type="text" name="username" required>
+            <span>{{t_error}}</span>
+            <br>
+
+            密码：
+            <input type="password" name="pwd" required>
+
+            <br>
+
+            <input type="submit" value="登录">
+
+            <a href="/register">注册</a>
+        </form>
+    </div>
+</body>
+</html>

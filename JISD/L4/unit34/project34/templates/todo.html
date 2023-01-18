@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的任务本</title>
+    <link rel="stylesheet" href="static/css/todo_u34.css"></link>
+</head>
+<body>
+    <h1>{{ t_username }} 的任务本</h1>
+
+    <a href="/logout">退出</a>
+    <br><br>
+
+    <a href="/add">新建任务</a>
+    <br><br>
+
+    <form action="/todo" method="get">
+        科目:
+        <select name="subject">
+            {% for i in t_options %}
+                {% if i == t_subject %}
+                    <option value="{{ i }}" selected>{{ i }}</option>
+                {% else %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <input type="submit" value="查询">
+    </form>
+
+    <!-- 显示用户任务列表中的信息，定义模板变量t_todos存储任务列表-->
+    <!-- 日期：date，科目：subject，内容：content，状态：state-->
+
+    <h2>未完成：</h2>
+
+    {% for i in t_todos %}
+        {% if i['state'] == '未完成' %}
+            <p>
+                {{ i['date'] }}
+                【{{ i['subject'] }}】
+                {{ i['content'] }}
+
+                <!--
+                     【提示1】：添加"已完成"图片超链接，点击图片实现更改任务状态
+                              图片路径："static/images/finish.png"
+                              超链接提交的数据为任务的"_id"，资源路径为"/finish"
+                -->
+
+
+                <!--
+                     【提示4】：添加"删除"图片超链接，点击图片实现更改任务状态
+                              图片路径："static/images/delete.png"
+                              超链接提交的数据为任务的"_id"，资源路径为"/delete"
+                -->
+
+            </p>
+        {% endif %}
+    {% endfor %}
+
+
+
+    <h2>已完成：</h2>
+
+    {% for i in t_todos %}
+        {% if i['state'] == '已完成' %}
+            <p>
+                {{ i['date'] }}
+                【{{ i['subject'] }}】
+                {{ i['content'] }}
+                <!--
+                     【提示3】：添加"未完成"图片超链接，点击图片实现更改任务状态
+                              图片路径："static/images/unfinish.png"
+                              超链接提交的数据为任务的"_id"，资源路径为"/unfinish"
+                -->
+
+                <!--
+                     【提示4】：添加"删除"图片超链接，点击图片实现更改任务状态
+                              图片路径："static/images/delete.png"
+                              超链接提交的数据为任务的"_id"，资源路径为"/delete"
+                -->
+
+            </p>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>主页</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+<div class="mask"></div>
+<div class="box">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="navbar-header col-md-8 col-lg-8">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand pl" href="javascript:;">
+                        <div class="indent">
+
+                                <!--
+                                    【提示2】添加a标签，链接到web项目中的欢迎页面
+                                    【提示2】欢迎页面的资源路径为/welcome
+                                -->
+                                <a href="/welcome">返回</a>
+
+                            </div>
+                        <img class="hidden-md hidden-lg pull-left" height="60" src="/static/images/avatar.png"
+                             alt="">
+                        <div class="pull-left  mynav_leftuser pl">
+                            <div class="mynav_user">
+                                <img class="hidden-sm hidden-xs vm" height="60" src="/static/images/avatar.png">
+                                <span class="welcomtitle">欢迎使用{{ t_username }}的工具箱</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse mobiologinangregist" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            {% if t_is_login==False %}
+                                <a class="loginBtn" href="/login">登录</a>/
+                                <a class="registBtn" href="/register">注册</a>
+                            {% else %}
+                                <a class="loginOutBtn" href="/logout">退出登录</a>
+                            {% endif %}
+
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="mainContiner container-fluid">
+        <div class="boxone row">
+            <div class="mainTitle col-xs-12">个人区</div>
+            <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4"><a href="/add_info" target="_blank">个人名片</a></div>
+        </div>
+        <div class="boxone row">
+            <div class="mainTitle col-xs-12">工具区</div>
+            <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4"><a href="/trans" target="_blank">在线翻译</a></div>
+            <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4"><a href="/todo" target="_blank">TODO</a></div>
+            <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4"><a href="/book" target="_blank">猿书屋</a></div>
+        </div>
+        <div class="boxtwo row">
+            <div class="mainTitle maintitleTwo col-xs-12">娱乐区</div>
+            <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4"><a href="/music" target="_blank">音乐达人</a></div>
+            <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4"><a href="/date" target="_blank">我的星座</a></div>
+            <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4"><a href="/diary" target="_blank">我的日记</a></div>
+            <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4"><a href="/contact" target="_blank">通讯录</a></div>
+            <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4"><a href="/add_hero" target="_blank">英雄集结</a></div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
