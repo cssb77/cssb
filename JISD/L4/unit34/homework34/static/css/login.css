@@ -1,0 +1,115 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    background: url(../images/mainbg.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+.mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.76;
+    z-index: 1;
+}
+form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loginBox {
+    position: relative;
+    width: 20rem;
+    padding: 24px;
+    padding-bottom: 0;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    z-index: 666;
+    color: #fff;
+}
+a {
+    color: #fff;
+    text-decoration: none;
+}
+.loginBox-top {
+    width: 100%;
+    font-size: 0.8rem;
+}
+.loginBox-top img {
+    height: 0.8rem;
+    max-height: 100%;
+    max-width: 100%;
+    vertical-align: middle;
+    cursor: pointer;        
+}
+#account,#password, #repassword{
+    margin-top: 2rem;
+    width: 100%;
+    height: 2rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    background: transparent;
+    padding:0 10px;
+    font-size: 0.6rem;
+    line-height: 2rem;
+    color: rgba(255,255,255,0.6);
+    box-sizing: border-box;
+}
+#password, #repassword {
+    margin-top: 1.2rem;
+}
+.mid {
+    margin-top: 0.5rem;
+    line-height: 2rem;
+    font-size: 0.6rem;
+}
+.mid a {
+    float: right;
+    color: #4D84FF;
+}
+#remember {
+    width: 0.6rem;
+    height: 0.6rem;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+.login-btn {
+    margin-top: 35px;
+    background: #407FFF;
+    height: 43px;
+    line-height: 43px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#sub1,.register {
+    display: block;
+    margin-top: 1.5rem;
+    background: #407FFF;
+    height: 2rem;
+    width: 100%;
+    line-height: 2rem;
+    text-align: center;
+    font-size: 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    color:white;
+    border: 0px solid transparent;
+}
+.register{
+    background: transparent;
+    margin: 0;
+}
+.msg {
+    margin-left:5px;
+    font-size: 0.8rem;
+    color: red;
+    opacity: 0.8;
+}

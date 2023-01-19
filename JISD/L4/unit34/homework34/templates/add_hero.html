@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>英雄人物</title>
+    <link rel="stylesheet" href="static/css/add_hero.css">
+</head>
+<body>
+    <div class="page-form-container">
+        <h1>创建一个英雄人物</h1>
+        <div class="text">一共拥有20个技能分值，<span>即各项总和不能超过20</span>，请合理分配。</div>
+        <form action="/hero_result" method="post">
+            名字：
+            <input type="text" name="name" required>
+            <br>
+            防御分值：
+            <input type="number" name="defense" class="calculate" required oninput="if(value>5)value=5">
+            <br>
+            攻击分值：
+            <input type="number" name="attack" class="calculate" required oninput="if(value>5)value=5">
+            <br>
+            爱心分值：
+            <input type="number" name="love" class="calculate" required oninput="if(value>5)value=5">
+            <br>
+            装扮分值：
+            <input type="number" name="dress" class="calculate" required oninput="if(value>5)value=5">
+            <br>
+            智慧分值：
+            <select name="wit" required class="calculate">
+                <!-- 【提示】使用for循环遍历t_wits，展示5个选项
+                      t_wits内容为：[1, 2, 3, 4， 5]
+                -->
+                {% for i in t_wits %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            描述：
+            <br>
+            <textarea name="wish" cols="60" rows="6"></textarea>
+            <br>
+            <input type="submit" value="提交结果" onclick="checkNum(event)">
+        </form>
+    </div>
+<script src="static/js/form.js"></script>
+</body>
+</html>

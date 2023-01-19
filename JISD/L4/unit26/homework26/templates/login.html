@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>登录</title>
+    <link rel="stylesheet" href="/static/css/common_u26_work.css">
+    <link rel="stylesheet" href="/static/css/login_u26_work.css">
+</head>
+<body>
+    <div class="mask"></div>
+    <form action = "/login_check" method = "post">
+        <div class="loginBox">
+            <div class="loginBox-top">
+                <a href="#">登录</a>
+                <span class = "msg">{{ t_error }}</span>
+                <a href="/trans"><img class="fr" src = "/static/images/close.png"></a>
+            </div>
+            <input type="text" name="username" id="account" placeholder="账号">
+			<input type="password" name="pwd" id="password" placeholder="密码">
+            <input type = "submit" value = "登&nbsp;&nbsp;录" id = "sub1">
+            <a style="color: rgba(77,132,255,1);" class="register" href = "/register">注&nbsp;&nbsp;册</a>
+        </div>
+    </form>
+</body>
+</html>

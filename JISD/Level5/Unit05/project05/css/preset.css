@@ -1,0 +1,48 @@
+/*story.html中，设置1.jpg、2.jpg、3.jpg图片的样式*/
+#paragraph img {
+    width: auto;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+/*story.html中，设置"阅读全文"的居中样式*/
+div:nth-child(4) {
+    text-align: center;
+}
+/*story.html中，设置小王子正文及图片所在div标签的样式*/
+#paragraph {
+    width: 900px;
+    margin: auto;
+}
+/*index.html、poetry.html、prose.html、story.html中，设置标题、作者等所在div标签的样式*/
+#content {
+    width: 500px;
+    margin: auto;
+}
+/*index.html中，设置"古诗词"、"童话"、"散文"标题的样式*/
+li a {
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+}
+/*index.html中，设置"读书，不仅仅是..."所在div标签的样式*/
+#footer {
+    width: 700px;
+    margin: auto;
+    padding-top: 50px;
+}
+/*index.html中，设置"读书，不仅仅是..."p标签的样式*/
+#footer p {
+    text-align: center;
+    font-size: 15px;
+    font-style: oblique;
+}
+/*index.html中，设置标题、作者、段落所在div标签的样式*/
+.middle {
+    width: 900px;
+    margin: auto;
+}
+/*index.html中，设置"古诗词"、"童话"、"散文"简介所在ul标签的样式*/
+.middle ul {
+    padding: 0;
+}

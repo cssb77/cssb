@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="static/css/register_u22.css">
+</head>
+<body>
+    <div class="page-register-wrap">
+        <h1>注册</h1>
+        <form action="/register_check" method="post">
+            <!-- 【提示5】设置<input>标签的value属性的值为模板变量（t_username） -->
+            账号：<input type="text" name="username" required>
+            <!-- 【提示4】创建<span>标签；标签内容是一个模板变量（t_error） -->
+
+            <br>
+            密码：<input type="password" name="pwd" required>
+            <br>
+            <input type="submit" value="注册">
+        </form>
+    </div>
+</body>
+</html>

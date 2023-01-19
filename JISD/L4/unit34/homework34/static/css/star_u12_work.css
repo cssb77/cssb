@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.page-container {
+    height: 100%;
+    position: absolute;
+    background-image: url('/static/images/border1.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+}
+.page-title-text {
+    margin: 8% auto 0;
+    width: 105px;
+}
+.page-head-portrait {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    margin: 16px auto;
+    display: block;
+}
+.page-introduce-wrap {
+    margin-top: 30px;
+}
+.page-intro-group {
+    margin: 10px 20% 10px 30%;
+}
+.page-intro-item {
+    display: block;
+    float: left;
+    width: 50%;
+}
+.page-desc {
+    /* clear: both; */
+    margin: 30px 30%;
+    line-height: 1.5;
+}
+
+/* 大屏高度超出一定范围 */
+@media screen and (min-height: 890px){
+    .page-title-text {
+        margin: 12% auto 0;
+    }
+}
+
+/*<=1440的设备*/
+@media screen and (min-device-width: 1001px) and(max-device-width: 1440px){
+    .page-container {
+        background-size: 100% 120%;
+    }
+    .page-introduce-wrap {
+        margin-top: 10px;
+    }
+    .page-title-text {
+        margin: 8% auto 0;
+    }
+    .page-head-portrait {
+        height: 70px;
+        width: 70px;
+    }
+}
+
+/*pad 宽度在640-1000之间*/
+@media screen and (min-device-width: 640px) and (max-device-width: 1000px) {
+    .page-container {
+        background-size: cover;
+    }
+    .page-title-text {
+        margin: 22% auto 0;
+    }
+    .page-intro-item {
+        font-size: 20px;
+    }
+    .page-desc {
+        font-size: 20px;
+        margin: 30px 20%;
+    }
+    .page-intro-group {
+        margin: 10px 20% 10px 20%;
+    }
+}
+
+/*手机 宽度小于640*/
+@media screen and (max-device-width: 639px){
+    .page-container {
+        background-size: cover;
+    }
+    .page-intro-item {
+        font-size: 24px;
+    }
+    .page-title-text {
+        margin: 32% auto 0;
+        width: 110px;
+    }
+    .page-desc {
+        font-size: 24px;
+        margin: 30px 20%;
+    }
+    .page-intro-group {
+        margin: 10px 20% 10px 20%;
+    }
+}

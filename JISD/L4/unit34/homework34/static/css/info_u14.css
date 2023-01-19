@@ -1,0 +1,58 @@
+body {
+    text-align:center;
+    }
+p {
+    font-family:'Comic Sans MS”'”, cursive;
+    font-size:14px;
+    margin:6px;
+    }
+span {
+    font-family:”'Times New Roman”, Times', serif;
+    font-size:20px;
+    font-weight:900;
+    }
+img {
+    max-width:120px;
+    max-height:120px;
+}
+.row {
+    width:380px;
+    height:230px;
+    border: solid 3px #DDAE00;
+    background-color: #FFFFFF;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    margin:80px auto;
+    position:relative;
+    }
+.img {
+    width:120px;
+    height:120px;
+    position:absolute;
+    top:45px;
+    left:40px;
+    }
+.name {
+    width:120px;
+    height:40px;
+    border-bottom:outset 2px gray;
+    position:absolute;
+    top:30px;
+    left:180px;
+    }
+.age {
+    width:150px;
+    height:80px;
+    position:absolute;
+    top:80px;
+    left:180px;
+    text-align:left;
+    }
+.page-info-text {
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+}

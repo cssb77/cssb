@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>任务本</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/list.css">
+</head>
+<body>
+<div class="mask"></div>
+<div id="bg"></div>
+<div id="container" class="container">
+    <header>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 margin0 padding0 width28 gobackWrap">
+            <a href="/main" class="goBack">
+                <img src="/static/images/back.png">
+                <span class="goBackIndex">返回主页</span>
+            </a>
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 hidden-xs wel">
+            <img class="hidden-sm hidden-xs vm" height="60" src="/static/images/avatar.png">
+            <span class="welcomtitle">欢迎使用{{ t_username }}的工具箱</span>
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pull-right">
+            <div class="pull-right welcomt"><a class="loginOutBtn" href="/logout">退出登录</a></div>
+        </div>
+    </header>
+    <div class="main row">
+        <div class="taskDateWrap">
+            <div class="mainTop col-xs-12 col-md-12 col-sm-12 col-lg-12">
+                        <span class="user">
+                            <span class="userName">{{t_username}}的任务本</span>
+                        </span>
+                <img class="monkey" height="90" src="/static/images/work.png" alt="">
+                <a class="addtask" href="/todo_add">
+                    <img width="46" src="/static/images/addtask.png" alt="">
+                    <span class="hidden-xs">添加任务</span>
+                </a>
+            </div>
+            <div class="subjectTime col-xs-12 col-md-12 col-sm-12 col-lg-12 ">
+                <form action="/todo" name='f1' method="get">
+
+                    <div class="dateSubjectWrap">
+                        <label for="object" class="object">科目：</label>
+                        <select name="subject" onchange="f1.submit()" id="object">
+                            {% for i in t_options %}
+                            {% if i==t_subject %}
+                            <option value="{{ i }}" selected>{{ i }}</option>
+                            {% else %}
+                            <option value="{{ i }}">{{ i }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div id="content">
+            <div class="noFinsh cont clearfix">
+                <ul>
+                    {% for i in t_todos %}
+                    {% if i['state'] == '未完成' %}
+                    <li class="listItem clearfix">
+                        <p>
+                        <span class="time">{{i['date']}}</span>
+                        <span class="note"><span class="biancheng object">【{{i['subject']}}】</span>
+                            <span class="noteCont">{{i['content']}}</span></span>
+                        </p>
+                        <p>
+                            <a class="delBtn btn fr" href="/todo_delete?_id={{ i['_id'] }}"></a>
+                            <a class="rightBtn btn fr" href="/finish?_id={{ i['_id'] }}"></a>
+                        </p>
+                    </li>
+
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="finshed cont clearfix">
+                <ul>
+                    {% for i in t_todos %}
+                    {% if i['state'] == '已完成' %}
+                    <li class="listItem clearfix">
+                        <span class="time">{{i['date']}}</span>
+                        <span class="note"><span class="math object">【{{i['subject']}}】</span>
+                            <span class="noteCont">{{ i['content']}}</span></span>
+                        <a class="delBtn btn fr" href="/todo_delete?_id={{ i['_id'] }}"></a>
+                        <a class="repeatBtn btn fr" href="/unfinish?_id={{ i['_id'] }}"></a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    COPYRIGHT© {{t_username}} 2020
+</div>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+</body>
+</html>

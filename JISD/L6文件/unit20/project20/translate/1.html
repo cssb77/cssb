@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>智能翻译</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<!-- 引入css文件 -->
+		<link href="../css/mui.css" rel="stylesheet" />
+		<style>
+			/* 设置页面背景 */
+			body {
+				background-image: url(images/bg.png);
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+				height: 100vh;
+			}
+			/* 设置主体内容样式 */
+			.mui-content {
+				background-color: transparent;
+			}
+			/* 设置文本域样式 */
+			textarea {
+				margin-top: 15px;
+				border: 6px solid #6dcbff;
+				border-radius: 20px;
+			}
+			/* 设置翻译按钮的样式 */
+			#fanyi {
+				/* 设置宽度120px */
+				
+				/* 设置高度40px */
+				
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- 标题栏 -->
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">智能翻译</h1>
+		</header>
+		<!-- 主体内容 -->
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<!-- 语言切换按钮 -->
+				<div style="text-align: center;">
+					<button type="button" class="mui-btn">
+						<span>自动检测</span>
+						<span class="mui-icon mui-icon-arrowdown"></span>
+					</button>
+				</div>
+				<!-- 待翻译内容 -->
+				<textarea rows="8" placeholder="请输入要翻译的内容"></textarea>
+				<!-- 立即翻译按钮 -->
+				<!-- 设置样式，向右对齐 -->
+				<div style="">
+					<!-- 添加图片标签img，图片地址：images/btn-fanyi.png -->
+					
+				</div>
+				<!-- 翻译结果 -->
+				<textarea rows="8" readonly></textarea>
+			</div>
+		</div>
+		
+	
+		<!-- 引入js文件 -->
+		<script src="../js/mui.js"></script>	
+		<script type="text/javascript">
+			//mui组件初始化
+			mui.init();
+
+		</script>
+	</body>
+
+</html>

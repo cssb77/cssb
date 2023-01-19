@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>注册</title>
+    <link rel="stylesheet" href="/static/css/common_u26_work.css">
+    <link rel="stylesheet" href="/static/css/login_u26_work.css">
+</head>
+<body>
+<div class="mask"></div>
+<form action="/register_check" method="post">
+    <div class="loginBox">
+        <div class="loginBox-top">
+            <a href="#">注册</a>
+            <span class="msg">{{ t_msg }}</span>
+            <a href="/trans"><img class="fr" src="/static/images/close.png"></a>
+        </div>
+        <input type="text" name="username" value="{{t_username}}" id="account" placeholder="账号" required>
+        <input type="password" name="pwd" id="password" placeholder="密码" required>
+
+        <input type="submit" value="注&nbsp;&nbsp;册" id="sub1">
+
+        <a style="color: rgba(77,132,255,1);" class="register" href="/login">登&nbsp;&nbsp;录</a>
+    </div>
+</form>
+</body>
+</html>

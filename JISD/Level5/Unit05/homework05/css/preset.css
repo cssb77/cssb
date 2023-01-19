@@ -1,0 +1,40 @@
+#paragraph img {
+    width: auto;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+div:nth-child(4) {
+    text-align: center;
+}
+#paragraph {
+    width: 900px;
+    margin: auto;
+}
+
+#content {
+    width: 500px;
+    margin: auto;
+}
+li a {
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+}
+#footer {
+    width: 700px;
+    margin: auto;
+    padding-top: 50px;
+}
+#footer p {
+    text-align: center;
+    font-size: 15px;
+    font-style: oblique;
+}
+.middle {
+    width: 900px;
+    margin: auto;
+}
+.middle ul {
+    padding: 0;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的星座</title>
+    <link rel="stylesheet" href="/static/css/star_u12.css">
+</head>
+<body>
+    <div class="page-container">
+        <div class="page-title-text">
+            <h1>
+                {{t_star_data['name']}}
+            </h1>
+        </div>
+        <img src="{{t_star_data['picture']}}" class="page-head-portrait">
+        <div class="page-introduce-wrap">
+            <div class="page-intro-group">
+                <span class="page-intro-item">守护星：{{t_star_data['planet']}}</span>
+                <span class="page-intro-item">性格特点：{{t_star_data['character']}}</span>
+                </div>
+                <div class="page-intro-group">
+                <span class="page-intro-item">幸运花：{{t_star_data['lucky_flower']}}</span>
+                <span class="page-intro-item">幸运石：{{t_star_data['lucky_stone']}}</span>
+            </div>
+            <div class="page-intro-group">
+                <span class="page-intro-item">幸运日：{{t_star_data['lucky_day']}}</span>
+                    <span class="page-intro-item">幸运数：{{t_star_data['lucky_number']}}</span>
+            </div>
+            <div class="page-intro-group">
+                <span class="page-intro-item">幸运地：{{t_star_data['lucky_address']}}</span>
+                <span class="page-intro-item">幸运色：{{t_star_data['lucky_color']}}</span>
+                </div>
+                <!-- 解决父元素不被撑开的问题 -->
+            <div style="clear:both;"></div>
+        </div>
+        <div class="page-desc">
+            {{t_star_data['desc']}}
+        </div>
+    </div>
+</body>
+</html>

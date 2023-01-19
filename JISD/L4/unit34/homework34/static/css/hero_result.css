@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+#data, #name {
+    visibility: hidden;
+}
+
+#chart {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.page-result-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.page-result-container img {
+    height: 100%;
+}

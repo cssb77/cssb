@@ -1,0 +1,24 @@
+.page-birth-container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+.page-birth-container img {
+    /* justify-content: center; */
+    width: 400px;
+    height: 300px;
+    align-self: center;
+    margin-top: 30px;
+}
+.page-birth-container form {
+    margin-top: 30px;
+    align-self: center;
+}
+.page-birth-container form input[type="text"] {
+    width: 30px;
+    margin-right: 4px;
+}
+.page-birth-container form input[type="submit"] {
+    cursor: pointer;
+    margin-left: 8px;
+}

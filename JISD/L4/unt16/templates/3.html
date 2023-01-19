@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<!--     <meta name="x-frame-options" content="allowall" /> -->
+    <meta charset="UTF-8">
+    <title>排行榜</title>
+    <link rel="stylesheet" href="https://show.ybccode.com/music_l5/ybc_music_l5/static/css/musicRank.css">
+    <link rel="stylesheet" href="https://show.ybccode.com/music_l5/ybc_music_l5/static/font_tr79oxs4xu/iconfont.css">
+
+</head>
+<body>
+<!--
+	 PV: 页面访问量，单个用户连续访问N个页面，记录为N次。
+	 UV: 用户访问量，单个用户IP连续访问N个页面，记录为1次。
+-->
+<!--
+	<span id="busuanzi_container_site_pv">
+    	PV:<span id="busuanzi_value_site_pv"></span>次
+	</span>
+-->
+<!--
+	<span id="busuanzi_container_site_pv">
+		PV:
+	</span>
+-->
+
+<!--
+	<span id="busuanzi_container_site_uv">
+	    UV:<span id="busuanzi_value_site_uv"></span>
+	</span>
+-->
+	<button class="back">返回</button>
+    <!--主图、文字-->
+    <div class="top">
+        <!--图片、花体文字-->
+        <img class="topImg" src="https://show.ybccode.com/music_l5/media/images/2020/07/banner_new.jpg" alt="">
+        <p></p>
+    </div>
+
+    <!--排行榜列表、歌曲列表-->
+    <div class="box">
+        <div class="boxCont">
+            <!--左侧排行榜列表-->
+            <!--列表悬浮页面右侧，滚动鼠标位置不发生改变,
+            点击对应榜单名，右侧展示对应音乐列表-->
+            <div class="cont_top">
+                <!--文字“music is the eye of ear”-->
+                <h2>music is the eye of ear</h2>
+            </div>
+            <div class="cont_under">
+
+                <div class="left">
+                    <ul>
+                        <li class="biaosheng"> <img src="https://show.ybccode.com/music_l5/media/images/2020/07/biaosheng.png"></li>
+                        <li class="resou"><img src="https://show.ybccode.com/music_l5/media/images/2020/07/resou.png"></li>
+                        <li class="yuan"><img src="https://show.ybccode.com/music_l5/media/images/2020/07/yuanyuan.png"></li>
+                    </ul>
+<!--                     <img src="/music_l5/media/images/2020/07/1.gif" alt=""> -->
+                </div>
+
+                <!--右侧歌曲对应排行榜列表-->
+                <!--展示榜单对应的15首音乐（猿猿音乐全部展示）
+                前5首音乐显示专辑图标
+                点击播放跳转网易云外部音乐链接
+                点击歌曲名跳转音乐单曲页
+                -->
+                <div class="right">
+                    <ul class="list">
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <audio  id="AudioDom"></audio>
+
+    <iframe  frameborder="0" class="pop_details" id="details"></iframe>
+
+    <div class="sidePlayer">
+        <span class="pull">
+        	<span class="arrow">↑</span>
+        </span>
+        <div class="playerBox">
+	        <!--歌曲名-歌手-->
+<!--
+	        <p class="song_singer">
+		        <button>点击跳转播放进度</button>
+	        </p>
+-->
+            <!--控制播放暂停icon-->
+            <span class="iconfont icon-bofang" id="controlBtn"></span>
+            <!--进度条-->
+            <div id="progressBar">
+                <div id="ptxt" ></div>
+                <div id="playProgressBar"></div>
+            </div>
+            <p class="time">
+                <span class="currentTime">00:00</span>
+                <span>/</span>
+                <span class="duration">00:00</span>
+            </p>
+        </div>
+    </div>
+</body>
+<!-- <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
+<script src="https://show.ybccode.com/music_l5/ybc_music_l5/static/js/jquery-3.3.1.min.js"></script>
+<script src="https://show.ybccode.com/music_l5/ybc_music_l5/static/js/musicRank.js"></script>
+<script>
+/*
+	function back() {
+	    document.frames['pop_details'].history.back();
+	    return false;
+	}
+	$(document).ready(function(e) {
+	    var counter = 0;
+	    if (window.history && window.history.pushState) {
+	        $(window).on('popstate', function () {
+	            window.history.pushState('forward', null, '#');
+	            window.history.forward(1);
+	            back();
+	            console.log("请使用自带的返回按钮操作");
+	        });
+	    }
+
+	    window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
+	    window.history.forward(1);
+	});
+*/
+</script>
+</html>

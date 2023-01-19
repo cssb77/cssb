@@ -1,0 +1,24 @@
+img {
+    width: 100%;
+}
+.text {
+    font-size: 20px;
+    font-weight: bold;
+}
+li {
+    list-style-type: none;
+}
+#content {
+    text-align: center;
+}
+#note_1 {
+    background-color: #DDDDDD;
+}
+#note_2 {
+    text-indent: 2em;
+}
+/*【提示1】使用id选择器 id="people" 设置h3标签文本右对齐*/
+
+
+/*【提示2】使用类选择器 class="description" 设置p标签段首空两格样式 text-indent: 2em; 文本样式设置为灰色样式 color: grey;*/
+

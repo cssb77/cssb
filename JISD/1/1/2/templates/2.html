@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .container{
+        margin: 0 auto;
+        height: 500px;
+        width: 1200px;
+        background: black;
+        position: relative;
+        overflow: hidden;
+    }
+    .fire{
+        width: 10px;
+        background: white;
+        height: 10px;
+        /* border-radius: 50%; */
+        position: absolute;
+        bottom: 0;
+    }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <script src="./utils.js"></script>
+    <script>
+
+ 	function animation(ele,attroptions,callback){
+	    for(var attr in attroptions){
+	        attroptions[attr] ={
+	            target:attroptions[attr],
+	            inow:parseInt(getComputedStyle(ele)[attr])
+	        }
+	    }
+	    clearInterval(ele.timer);
+	    ele.timer = setInterval(function(){
+	        for(var attr in attroptions ){
+	            var item = attroptions[attr]
+	            var target = item.target;
+	            var inow = item.inow;
+	            var speed = (target - inow)/10;
+	            speed = speed>0?Math.ceil(speed):Math.floor(speed);
+	            if(Math.abs(target - inow) <= Math.abs(speed)){
+	                ele.style[attr] = target+"px";
+	                delete attroptions[attr];
+	                for(var num  in attroptions){
+	                    return false;
+	                }
+	                clearTimeout(ele.timer);
+	                if(typeof callback === "function")callback();
+	            }else{
+	                attroptions[attr].inow += speed;
+	                ele.style[attr]  = attroptions[attr].inow+"px";
+	            }
+	        }
+	    },30)
+	}
+
+
+
+
+        function Firework(x,y,selector,type){
+            if(Firework.box && selector === Firework.box.selector){
+                this.box =  Firework.box.ele;
+            }else{
+                Firework.box = {
+                    ele:document.querySelector(selector),
+                    selector:selector
+                }
+                this.box = Firework.box.ele;
+            }
+            this.type = type;
+            this.init(x,y)
+        }
+
+        Firework.prototype = {
+            constructor:Firework,
+            //初始化
+            init:function(x,y){
+                this.ele = this.createFirework();
+                this.x = x ;
+                this.y = y;
+                this.maxX = this.box.offsetWidth - this.ele.offsetWidth;
+                this.maxY = this.box.offsetHeight - this.ele.offsetHeight;
+                this.randomColor(this.ele);
+                this.fireworkUp(this.ele);
+            },
+            //创造烟花
+            createFirework:function(){
+                var ele = document.createElement("div");
+                ele.className = "fire";
+                this.box.appendChild(ele);
+                return ele;
+            },
+            fireworkUp:function(ele){
+                ele.style.left = this.x + "px";
+                animation(ele,{top:this.y},function(){
+                    ele.remove();
+                    this.fireworkBlast()
+                }.bind(this));
+            },
+            //烟花爆炸
+            fireworkBlast:function(){
+                for(var i = 0 ; i < 20; i++){
+                    var ele = document.createElement("div");
+                    ele.className = "fire";
+                    ele.style.left = this.x + "px";
+                    ele.style.top = this.y + "px";
+                    this.box.appendChild(ele);
+                    ele.style.borderRadius = "50%";
+                    this.randomColor(ele);
+                    animation(ele,this.type === "circle"?this.circleBlast(i,20): this.randomPosition(),function(cale){
+                        cale.remove();
+                    }.bind(this,ele))
+                }
+            },
+            circleBlast:function(i,total){
+                var r = 200;
+                var reg = 360 / total *i;
+                var deg = Math.PI / 180 *reg;
+                return {
+                    left:r * Math.cos(deg) + this.x ,
+                    top:r * Math.sin(deg) + this.y
+                }
+            },
+            randomPosition:function(){
+                return {
+                    left : Math.random()*this.maxX,
+                    top : Math.random()*this.maxY
+                }
+            },
+            randomColor:function(ele){
+                var color =  "#" + parseInt(parseInt("ffffff",16)*Math.random()).toString(16).padStart(6,0);
+                return ele.style.backgroundColor = color;
+            }
+        }
+
+        document.querySelector(".container").addEventListener("click",function(evt){
+            var e = evt||event;
+            new Firework(e.offsetX,e.offsetY,".container","circle")
+            new Firework(e.offsetX,e.offsetY,".container")
+        })
+    </script>
+</body>
+</html>

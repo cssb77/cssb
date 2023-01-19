@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>填写宠物资料</title>
+    <link rel="stylesheet" href="static/css/pet_u22_work.css">
+</head>
+<body>
+    <div class="page-dog-wrap">
+        <h1>宠物小档案</h1>
+        <form action="/info" method="post" enctype="multipart/form-data">
+            名字：<input type="text" name="name" required>
+            <br>
+            年龄：<input type="text" name="age" required>
+            <br>
+            介绍你的宠物：
+            <br>
+            <textarea name="info" cols="60" rows="10" required></textarea>
+            <br>
+            <input type="file" name="image">
+            <br>
+            <input type="submit" value="提交">
+        </form>
+    </div>
+</body>
+</html>

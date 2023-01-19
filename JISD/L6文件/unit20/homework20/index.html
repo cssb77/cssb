@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+	<style type="text/css">
+		/* 设置css样式  */
+		body{
+			/*子元素居中*/
+			text-align: center; 
+		}
+		#btn{
+			margin-top: 400px;
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			font-size: 18px;
+		}
+	</style>
+   
+</head>
+<body>
+	
+	<!-- 按钮 -->
+	<button id="btn" type="button" class="mui-btn mui-btn-warning">点击跳转</button>
+	
+	
+	 <script src="js/mui.min.js"></script>
+	 <script src="js/root.js"></script>
+	 <script type="text/javascript" charset="utf-8">
+	   	mui.init();
+		
+		
+		// 【提示】点击按钮，跳转到目标页面poetry/index.html
+		mui("#btn")[0].addEventListener("tap",function(){
+			// 使用mui.openWindow()进行跳转
+			mui.openWindow({
+				url:"poetry/index.html"
+			}
+			)
+		})
+			
+		
+	 </script>
+</body>
+
+</html>

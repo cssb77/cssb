@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在线翻译</title>
+    <link rel="stylesheet" href="/static/css/trans_u16.css">
+</head>
+<body>
+    <div class="page-form-container">
+        <h1>在线小翻译</h1>
+        <form action="/do_trans" method="get">
+            <!-- 【提示1】定义单选按钮组（包含两个单选按钮）：
+                  数据名称为："lang"
+                  数据值分别为："英译汉"、"汉译英"
+                  选项名称分别为："英译汉"、"汉译英"
+            -->
+            <!-- 【提示2】将第一个单选按钮（"英译汉"）设置为默认选中状态 -->
+
+
+            <br>
+            <textarea name="text" cols="30" rows="10" required>{{ t_text }}</textarea>
+            <br>
+            <input type="submit" value="翻译">
+        </form>
+        <p>{{ t_result }}</p>
+    </div>
+    <!-- 【提示4】设置文件路径(src属性)为："static/js/trans.js" -->
+    <script type="text/javascript"></script>
+
+</body>
+</html>
+
+

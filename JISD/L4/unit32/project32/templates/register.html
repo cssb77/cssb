@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="static/css/register_u32.css">
+</head>
+<body>
+    <div class="page-register-wrap">
+        <h1>用户注册</h1>
+        <form action="/register_check" method="post">
+            账号：
+            <input type="text" name="username" required value="{{t_username}}">
+            <span>{{t_error}}</span>
+
+            <br>
+
+            密码：
+            <input type="password" name="pwd" required>
+
+            <br>
+
+            <input type="submit" value="注册">
+
+            <a href="/login">登录</a>
+        </form>
+    </div>
+</body>
+</html>

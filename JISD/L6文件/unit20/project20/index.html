@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <!-- 引入css文件 -->
+    <link href="css/mui.min.css" rel="stylesheet"/>
+	<style type="text/css">
+		body {
+			background-image: url(images/bg.png);
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+			height: 100vh;
+			text-align: center;
+		}
+		#yuan {
+			margin-top: 150px;
+			height: 50vh;
+		}
+		#btn {
+			margin-top: 20px;
+			/* background-color:orange;
+			color:white; */
+		}
+		#icons {
+			position: fixed;
+			bottom: 30px;
+			left:0px;
+			right:0px;
+			/* width: 100%; */
+		}
+		.icon {
+			width: 60px;
+			height: 60px;
+			margin-left:20px;
+			margin-right:20px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 壮猿 -->
+	<img id="yuan" src="images/stand.gif">
+	<br>
+	<!-- 按钮 -->
+	<button id="btn" type="button" class="mui-btn mui-btn-warning">按住按钮对壮猿讲话</button>
+	<!-- 三个图标 -->
+	<div id="icons">
+		<img class="icon" id="translate" src="images/icon-translate.png">
+		<img class="icon" src="images/icon-plant.png">
+		<img class="icon" id="user" src="images/icon-user.png">
+	</div>
+	
+	<!-- 引入js文件 -->
+	<script src="js/mui.min.js"></script>
+	<script src="js/root.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		//mui组件初始化
+	  	mui.init({
+			//配置手势事件
+			gestureConfig:{
+				hold:true,
+				release:true
+			}
+		});
+		
+		
+		//定义变量，用来存储当前设备的录音对象
+		var audio
+		
+		//为按钮绑定“按住”事件
+		mui("#btn")[0].addEventListener("hold",function(){
+			// console.log("按住了按钮！")
+			//修改壮猿的图片为“听”
+			mui("#yuan")[0].src="images/listen.gif"
+			//显示系统等待对话框
+			plus.nativeUI.showWaiting("正在聆听...")
+			//1.获取当前设备的录音对象
+			audio = plus.audio.getRecorder()
+			//2.调用设备麦克风进行录音
+			audio.record(
+				//对录音操作进行设置
+				{
+					format:"amr" //设置录音文件的格式
+				},
+				//录音成功的处理函数
+				function(file){
+					// alert("录音成功！文件的保存路径为：" + file)
+					//上传语音文件，获取壮猿回复
+					upload(file)
+				},
+				//录音失败的处理函数
+				function(){
+					alert("录音失败！")
+				}
+			)
+		})
+		
+		//为按钮绑定“松开”事件
+		mui("#btn")[0].addEventListener("release",function(){
+			// console.log("松开了按钮！")
+			//3.结束录音
+			audio.stop()
+			//修改壮猿的图片为“听结束”
+			mui("#yuan")[0].src="images/listen-end.gif"
+			//关闭系统等待对话框
+			plus.nativeUI.closeWaiting()
+		})
+		
+		//上传语音文件，获取壮猿回复
+		function upload(file){
+			//显示系统等待对话框
+			plus.nativeUI.showWaiting("我听到了，请稍候...")
+			//1.创建上传任务
+			var task = plus.uploader.createUpload(
+				//服务器端接口地址
+				root + "/aibot",
+				//设置请求方式
+				{ method:"POST" },
+				//上传任务完成后的处理函数
+				function(upload,status){
+					//4.处理上传结果
+					console.log("上传结果状态码：" + status)
+					console.log("服务器返回的数据：" + upload.responseText)
+					//关闭系统等待对话框
+					plus.nativeUI.closeWaiting()
+					if ( status == 200 ) { //上传成功
+						// alert("语音上传成功！")
+						//将JSON字符串转换为对象
+						var result = JSON.parse(upload.responseText)
+						console.log(result.code)
+						//判断服务器端是否操作成功
+						if(result.code == 0){ //服务器端操作成功
+							// alert("获取壮猿回复成功！")
+							//修改壮猿的图片为“说”
+							mui("#yuan")[0].src="images/speak.gif"
+							//创建音频播放对象
+							var player = plus.audio.createPlayer(result.answer)
+							//播放音频
+							player.play()
+							//为“音频播放对象”绑定“播放结束”事件
+							player.addEventListener("ended",function(){
+								//修改壮猿的图片为“静止站立”
+								mui("#yuan")[0].src="images/stand.gif"
+							})
+						}else{ //服务器端操作失败
+							alert("获取壮猿回复失败！请重新对壮猿讲话~")
+						}
+					}else{ //上传失败
+						alert("语音上传失败！请重新对壮猿讲话~")
+					}
+				}
+			)
+			//2.向上传任务中添加文件
+			task.addFile(file,{key:"voice"})
+			//3.开始上传任务
+			task.start()
+		}
+		
+		// 为翻译图标绑定单击事件
+		mui("#translate")[0].addEventListener("tap", function() {
+			//跳转到智能翻译translate/index.html
+			
+		})
+		
+		// 为个人主页图标绑定单击事件
+		mui("#user")[0].addEventListener("tap", function() {
+			//跳转到个人主页user/index.html
+			
+		})
+			
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>在线翻译</title>
+    <link rel="stylesheet" href="/static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/trans.css">
+
+</head>
+<body>
+<div class="mask"></div>
+<div id="bg"></div>
+<div id="container">
+    <header>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 margin0 padding0 width28 gobackWrap">
+            <a href="/main" class="goBack">
+                <img src="/static/images/back.png">
+                <span class="goBackIndex">返回主页</span>
+            </a>
+        </div>
+        <div class="col-xs-2 col-sm-2 hidden-sm hidden-md hidden-lg margin0 padding0 width12 fanIcon ">
+            <img class="" src="/static/images/avatar.png">
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 hidden-xs wel">
+            <img class="hidden-sm hidden-xs vm" height="60" src="/static/images/avatar.png">
+            <span class="welcomtitle">欢迎使用{{ t_username }}的工具箱</span>
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 pull-right">
+
+
+        </div>
+    </header>
+
+    <div class="main container-fluid">
+        <div class="row">
+            <div class="title onlineTitle hidden-xs col-md-5 col-lg-5 col-sm-4 col-xs-4">
+                <span class="pctitletxt">在线小翻译</span>
+            </div>
+            <div class="title hidden-lg hidden-md hidden-sm col-md-5 col-lg-5 col-sm-4 col-xs-4">
+                <span class="titletxt">翻译</span>
+            </div>
+            <form class="ctlWrap col-xs-4 col-sm-4 col-md-5 col-lg-5" action="do_trans">
+                <div class="content">
+                    <div class="inputWrapWrap">
+                        <input type="text" class="inputFan" name="" placeholder="英语" disabled>
+                        <div class="trans">
+                            <span><img id="switchOp" src="/static/images/switch.png"></span>
+                        </div>
+                        <input type="text" class="inputFan" name="" placeholder="汉语" disabled>
+                    </div>
+                    <div class="textarea">
+                        <div class="textareaWrap">
+                            <textarea placeholder="请输入单词" name="txt" required>{{t_txt}}</textarea>
+                            <input class="img" type="submit" value=" ">
+                        </div>
+                        <p class="answer">答案：</p>
+                        <div class="trans-text">
+                            <p>{{t_txt}}</p>
+                            {{t_result}}
+                        </div>
+
+                    </div>
+                    <input type="hidden" name="op" value="{{t_op}}">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    COPYRIGHT© {{t_username}} 2020
+</div>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="/static/js/switch.js"></script>
+</body>
+</html>

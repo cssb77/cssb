@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{{ t_name }}的主页</title>
+    <link rel="stylesheet" href="static/bootstrap-3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/common.css">
+    <link rel="stylesheet" href="static/css/main.css">
+</head>
+<body>
+    <div class="mask"></div>
+    <div class="box">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="navbar-header col-md-8 col-lg-8">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <div class="navbar-brand pl" href="javascript:;">
+                            <div class="indent">
+
+                                <!--
+                                    【提示2】添加a标签，内容为'返回'，链接到web项目中的欢迎页面
+                                    【提示2】欢迎页面的资源路径为'/welcome'
+                                -->
+                                <a href="/welcome">返回</a>
+
+                            </div>
+                            <div class="pull-left  mynav_leftuser pl">
+                                <div class="mynav_user">
+
+                                    <!--
+                                        【提示4】向images文件夹中添加头像图片，并在主页面中成功显示修改后的头像
+                                        【提示4】修改img标签的src属性为新添加图片的存放路径，即可实现显示图片
+                                    -->
+                                    <img class="hidden-sm hidden-xs vm" src="static/images/avatar.png">
+
+                                    欢迎使用{{ t_name }}的工具箱
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="mainContiner container-fluid">
+            <div class="boxone row">
+                <h1 class="mainTitle col-xs-12">工具区</h1>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="https://www.yuanfudao.com">猿辅导</a>
+                </div>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="http://show.ybccode.com">猿编程</a>
+                </div>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="https://www.bilibili.com">bilibili</a>
+                </div>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="https://hi.hifiveai.com">小嗨音乐助手</a>
+
+                </div>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="https://aidn.jp/mikutap/">动感音乐</a>
+                </div>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="https://lia.ustc-zzzz.net/">一个顶俩</a>
+                </div>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="/date">我的星座</a>
+                </div>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="/b">打字小游戏</a>
+                </div>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="/r">粒子漩涡</a>
+                </div>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="/w">烟花特效</a>
+                </div>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="/ji1">ji1</a>
+                </div>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="/ji3">ji3</a>
+                </div>
+            <div class="boxtwo row" class="manypeopleplay">
+                <h1 class="mainTitle maintitleTwo col-xs-12">娱乐区</h1>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="https://www.yuanfudao.com/info/emojis/">表情包</a>
+                </div>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="https://www.ixigua.com/">西瓜</a>
+                </div>
+                <div class="shape1 col-xs-6 col-sm-6 col-md-4 col-lg-4">
+                    <a href="/b">打字小游戏</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="static/js/jquery-3.3.1.min.js"></script>
+    <script src="static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

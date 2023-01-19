@@ -1,0 +1,13 @@
+body{
+	height:100vh;
+	background-image: url(../img/wutai.jpeg);
+	background-color: #005A9B;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	text-align: center;
+}
+img{
+	width:60%;
+	margin-top: 220px;
+	margin-left: 20px;
+}
