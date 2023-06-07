@@ -18,6 +18,9 @@ class Pixiv():
                           'word=%E5%9B%9B%E6%9C%88%E3%81%AF%E5%90%9B%E3%81%AE%E5%98%98&order=date_d&p='
         self.main_url = 'http://www.pixiv.net'
         # headers只要这两个就可以了,之前加了太多其他的反而爬不上
+
+
+        #llll
         self.headers = {
             'Referer': 'https://accounts.pixiv.net/login?lang=zh&source=pc&view_type=page&ref=wwwtop_accounts_index',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) '
